@@ -1,0 +1,20 @@
+<?
+if(!function_exists("max_kode_number")):
+
+function 
+max_kode_number($tabel,$field,$syarat=""){
+global $db;
+$cari= "SELECT 
+           max($field) as kode
+		 FROM
+		   $tabel $syarat
+		";
+$res_cari = &$db->Execute($cari);
+$hasil = $res_cari->fields["kode"]+1;
+
+
+return($hasil);
+}
+
+endif;
+?>

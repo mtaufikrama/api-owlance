@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<ROOT>
+	<ROW>
+		<a>1</a>
+		<b>sdf</b>
+	</ROW>
+	<ROW>
+		<a>2</a>
+		<b>etee</b>
+	</ROW>
+	<ROW>
+		<a>3</a>
+		<b/>
+	</ROW>
+	<ROW>
+		<a>4</a>
+		<b>sdfae</b>
+	</ROW>
+</ROOT>

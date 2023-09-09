@@ -1,0 +1,144 @@
+no_mr = 000063 
+kode_kelompok = 1 
+kode_rujukan = 4 
+kode_klas = 0 
+kode_bagian_asal = 020101 
+no_registrasi = 81 
+kode_regis = 3 
+kode_perusahaan = 
+txt_tanggal_masuk = 17-09-2007 15:23:33 
+txt_dikirim = dr Gaswaat 
+obstetri = no 
+txt_diagnosa = coba masukin diagnoasa masuk 
+txt_bagian = 030201 
+txt_ruangan = 7 
+txt_kamar = 223 
+kode_dokter = 4 
+txt_pasien = Lama 
+txt_nama_kel = 
+txt_alamat_kel = nn 
+txt_telepon_kel = 
+txt_hubungan_kel = Saudara 
+txt_surat = 
+txt_penjamin = 
+telp_penjamin = 
+alm_penjamin = 
+int_deposit = 
+txt_memo = 
+Submit = Submit 
+selesai = 1 
+
+--------------------------------------------------------------------------------
+(mssql): SELECT no_registrasi AS nilai FROM tc_registrasi WHERE no_mr='000063' and tgl_jam_keluar IS NULL and status_batal IS NULL   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT max(no_kunjungan) as kode FROM tc_kunjungan   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): select c.name, t.name, c.length, (case when c.xusertype=61 then 0 else c.xprec end), (case when c.xusertype=61 then 0 else c.xscale end) from syscolumns c join systypes t on t.xusertype=c.xusertype join sysobjects o on o.id=c.id where o.name='TC_KUNJUNGAN'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM tc_kunjungan WHERE id_tc_kunjungan IS NULL   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): INSERT INTO tc_kunjungan ( NO_KUNJUNGAN, NO_REGISTRASI, NO_MR, KODE_DOKTER, KODE_BAGIAN_TUJUAN, KODE_BAGIAN_ASAL, TGL_MASUK, STATUS_MASUK, STATUS_CITO, KETERANGAN ) VALUES ( 118, 81, '000063', '4', '030201', '020101', '2007-09-17 03:23:33PM', 1, null, null )   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): select c.name, t.name, c.length, (case when c.xusertype=61 then 0 else c.xprec end), (case when c.xusertype=61 then 0 else c.xscale end) from syscolumns c join systypes t on t.xusertype=c.xusertype join sysobjects o on o.id=c.id where o.name='RI_TC_RAWATINAP'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM ri_tc_rawatinap WHERE kode_ri IS NULL   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): INSERT INTO ri_tc_rawatinap ( NO_KUNJUNGAN, KODE_RUANGAN, BAG_PAS, KELAS_PAS, JATAH_KLAS, TGL_MASUK, DR_MERAWAT, PENJAMIN, SURAT_JAMINAN, ALM_PENJAMIN, TELP_PENJAMIN, NILAI_DEPOSIT, MR_IBU, USER_DTG, INPUT_TGL ) VALUES ( 118, '223', '030201', 7, 0, '2007-09-17 03:23:33PM', '4', '', '', '', '', 0, null, '1', '2007-09-17 12:00:00AM' )   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM mt_ruangan WHERE kode_ruangan like '223'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): UPDATE mt_ruangan SET STATUS='ISI' WHERE kode_ruangan like '223'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT kode_ri AS nilai FROM ri_tc_rawatinap where no_kunjungan=118   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT no_bed AS nilai FROM mt_ruangan WHERE kode_ruangan LIKE '223'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT no_kamar AS nilai FROM mt_ruangan WHERE kode_ruangan LIKE '223'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): select c.name, t.name, c.length, (case when c.xusertype=61 then 0 else c.xprec end), (case when c.xusertype=61 then 0 else c.xscale end) from syscolumns c join systypes t on t.xusertype=c.xusertype join sysobjects o on o.id=c.id where o.name='RI_TC_RIWAYAT_KELAS'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM ri_tc_riwayat_kelas WHERE kode_riw_klas IS NULL   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): INSERT INTO ri_tc_riwayat_kelas ( KODE_RI, KODE_KUNJUNGAN, NO_REGISTRASI, NO_MR, KODE_KELOMPOK, KODE_PERUSAHAAN, KODE_DOKTER, KODE_RUANGAN, BAGIAN_TUJUAN, KELAS_TUJUAN, NO_KAMAR_TUJUAN, NO_BED_TUJUAN, BAGIAN_ASAL, TGL_MASUK, KET_MASUK ) VALUES ( 92, '118', 81, '000063', 1, 0, '4', '223', '030201', 7, '537', 'A', '020101', '2007-09-17 03:23:33PM', 1 )   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM rg_tc_rujukan WHERE kode_rujukan=4   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): UPDATE rg_tc_rujukan SET STATUS=1 WHERE kode_rujukan=4   
+--------------------------------------------------------------------------------
+
+	Array
+(
+    [no_kunjungan] => 118
+    [kode_ruangan] => 223
+    [bag_pas] => 030201
+    [kelas_pas] => 7
+    [tgl_masuk] => 2007-09-17 15:23:33
+    [dr_merawat] => 4
+    [penjamin] => 
+    [surat_jaminan] => 
+    [alm_penjamin] => 
+    [telp_penjamin] => 
+    [nilai_deposit] => 
+    [mr_ibu] => 
+    [jatah_klas] => 0
+    [user_dtg] => 1
+    [input_tgl] => 2007-09-17
+)
+Array
+(
+    [kode_ri] => 92
+    [kode_kunjungan] => 118
+    [no_registrasi] => 81
+    [no_mr] => 000063
+    [kode_kelompok] => 1
+    [kode_perusahaan] => 
+    [kode_dokter] => 4
+    [kode_ruangan] => 223
+    [bagian_tujuan] => 030201
+    [kelas_tujuan] => 7
+    [tgl_masuk] => 2007-09-17 15:23:33
+    [ket_masuk] => 1
+    [no_kamar_tujuan] => 537
+    [no_bed_tujuan] => A
+    [bagian_asal] => 020101
+)
+Array
+(
+    [status] => 1
+)
+ 
+	

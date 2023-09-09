@@ -1,0 +1,101 @@
+waktu = 17-09-2007 16:22:02 
+ruangan = 030301 
+kelas = 4 
+kamar = 303 
+kondisiPasien = 
+kodeKematian = 
+no_mr = 000170 
+kode_bagian = 030401 
+no_kunjungan = 122 
+no_registrasi = 83 
+kode_ri = 94 
+kode_kelompok = 1 
+kode_perusahaan = 0 
+kdDr = 20 
+kode_ruangan = 401 
+nama_pasien = DIANA JUNARDY 
+Submit = Pasien Pindah 
+2007-09-17 16:22:02
+--------------------------------------------------------------------------------
+ (mssql): SELECT no_kamar, no_bed FROM mt_ruangan where kode_ruangan = '303'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM mt_ruangan where kode_ruangan = '401 '   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM mt_ruangan WHERE kode_ruangan = '401 '   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): UPDATE mt_ruangan SET STATUS='' WHERE kode_ruangan = '401 '   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM ri_tc_riwayat_kelas WHERE kode_ri = 94 and tgl_pindah is not null   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): UPDATE ri_tc_riwayat_kelas SET TGL_PINDAH='2007-09-17 04:22:02PM', KET_KELUAR=2 WHERE kode_ri = 94 and tgl_pindah is not null   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM tc_kunjungan WHERE no_kunjungan = 122   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): UPDATE tc_kunjungan SET TGL_KELUAR='2007-09-17 04:22:02PM', STATUS_KELUAR=1 WHERE no_kunjungan = 122   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT no_registrasi AS nilai FROM tc_registrasi WHERE no_mr='000170' and tgl_jam_keluar IS NULL and status_batal IS NULL   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT max(no_kunjungan) as kode FROM tc_kunjungan   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): select c.name, t.name, c.length, (case when c.xusertype=61 then 0 else c.xprec end), (case when c.xusertype=61 then 0 else c.xscale end) from syscolumns c join systypes t on t.xusertype=c.xusertype join sysobjects o on o.id=c.id where o.name='TC_KUNJUNGAN'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM tc_kunjungan WHERE id_tc_kunjungan IS NULL   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): INSERT INTO tc_kunjungan ( NO_KUNJUNGAN, NO_REGISTRASI, NO_MR, KODE_DOKTER, KODE_BAGIAN_TUJUAN, KODE_BAGIAN_ASAL, TGL_MASUK, STATUS_MASUK, STATUS_CITO, KETERANGAN ) VALUES ( 124, 83, '000170', '20 ', '030301', '030401', '2007-09-17 04:22:02PM', 1, 0, '' )   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): select c.name, t.name, c.length, (case when c.xusertype=61 then 0 else c.xprec end), (case when c.xusertype=61 then 0 else c.xscale end) from syscolumns c join systypes t on t.xusertype=c.xusertype join sysobjects o on o.id=c.id where o.name='RI_TC_RIWAYAT_KELAS'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM ri_tc_riwayat_kelas WHERE kode_riw_klas IS NULL   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): INSERT INTO ri_tc_riwayat_kelas ( KODE_RI, KODE_KUNJUNGAN, NO_REGISTRASI, NO_MR, KODE_KELOMPOK, KODE_PERUSAHAAN, KODE_DOKTER, KODE_RUANGAN, BAGIAN_TUJUAN, KELAS_TUJUAN, NO_KAMAR_TUJUAN, NO_BED_TUJUAN, BAGIAN_ASAL, KELAS_ASAL, NO_KAMAR_ASAL, NO_BED_ASAL, TGL_MASUK, KET_MASUK ) VALUES ( 94, '122', 83, '000170', 1, 0, '20 ', '303', '030301', 4, '503', null, '030401', 5, '469', 'A', '2007-09-17 04:22:02PM', 1 )   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM mt_ruangan WHERE kode_ruangan = '030301'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): UPDATE mt_ruangan SET STATUS='ISI' WHERE kode_ruangan = '030301'   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): SELECT * FROM ri_tc_rawatinap WHERE kode_ri = 94   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): UPDATE ri_tc_rawatinap SET KODE_RUANGAN='303', BAG_PAS='030301', KELAS_PAS=4 WHERE kode_ri = 94   
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+(mssql): COMMIT TRAN   
+--------------------------------------------------------------------------------
