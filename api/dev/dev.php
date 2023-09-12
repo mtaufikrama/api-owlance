@@ -80,19 +80,22 @@ switch ($method) {
         break;
 
     case "iiv":
-        $columns = implode(', ', array_keys($fld));
-        $values = implode(', ', array_fill(0, count($fld), '?'));
-        $sql = "INSERT INTO $tbl ($columns) VALUES ($values)";
-        $stmt = $conn->prepare($sql);
-        if (!$stmt) {
-            $data['code']=500;
-            $data['msg']="Error preparing the statement: " . $conn->error;
-            $conn->close();
-            die;
+        foreach ($flds as $fld) {
+            $columns = implode(', ', array_keys($fld));
+            $values = implode(', ', array_fill(0, count($fld), '?'));
+            $sql = "INSERT INTO $tbl ($columns) VALUES ($values)";
+            $stmt = $conn->prepare($sql);
+            if (!$stmt) {
+                $data['code']=500;
+                $data['msg']="Error preparing the statement: " . $conn->error;
+                $conn->close();
+                echo json_encode($data);
+                die;
+            }
+            $types = str_repeat('s', count($fld));
+            $stmt->bind_param($types, ...array_values($fld));
+            $result = $stmt->execute();
         }
-        $types = str_repeat('s', count($fld));
-        $stmt->bind_param($types, ...array_values($fld));
-        $result = $stmt->execute();
         if (!$result) {
             $data['code']=500;
             $data['msg']="Error executing the statement: " . $stmt->error;
