@@ -2,6 +2,7 @@
 ini_set('max_execution_time', '0');
 include "../../_lib/function/db_login.php";
 include "jwt.php";
+include "../encrypt.php";
 include "../../_lib/function/function.olah_tabel.php";
 include "../../_lib/function/function.max_kode_number.php";
 include "../../_lib/function/function.angka.php";
