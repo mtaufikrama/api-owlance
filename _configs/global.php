@@ -7,11 +7,11 @@ $AV_CONF["db"]["pass"]="$534UlWhP";
 $AV_CONF["db"]["name"]="zyarnfpx_db_owlance";
 $AV_CONF["db"]["host"]="127.0.0.1";
 
-$AV_CONF["db"]["type"]="mysqli";
-$AV_CONF["db"]["user"]="root";
-$AV_CONF["db"]["pass"]="";
-$AV_CONF["db"]["name"]="a-dokter";
-$AV_CONF["db"]["host"]="127.0.0.1";
+// $AV_CONF["db"]["type"]="mysqli";
+// $AV_CONF["db"]["user"]="root";
+// $AV_CONF["db"]["pass"]="";
+// $AV_CONF["db"]["name"]="owlance";
+// $AV_CONF["db"]["host"]="127.0.0.1";
 
 // $AV_CONF["db"]["type"]="mssqlnative";
 // $AV_CONF["db"]["user"]="sa";
