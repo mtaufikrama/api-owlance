@@ -52,7 +52,7 @@ foreach($_FILES as $key=>$val){
 	$$key=$val;
 }
 
-include '../../var.php';
+// include '../../var.php';
 
 // foreach($_GET as $key=>$val){
 // 	$$key=$val;

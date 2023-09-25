@@ -2,7 +2,7 @@
 
 include "cek-token.php";
 
-// nama, email, password, no_hp, foto
+// username, nama, email, password, no_hp, foto
 
 $cekSebelummasukusername=baca_tabel("user", "count(username)", "  where username='$username'");
 
@@ -41,6 +41,7 @@ $path = $foto['tmp_name'];
 $type = $foto['type'];
 $file = file_get_contents($path);
 
+unset($dataSend['foto']);
 $dataSend['password'] = enkrip($password);
 $dataSend['foto'] = "data:" . $type . ";base64," . base64_encode($file);
 
@@ -49,17 +50,17 @@ $result = insert_tabel("user", $dataSend);
 $kode   = baca_tabel('mt_karyawan', 'id_mt_karyawan', "where email='$email'");
 
 if ($result) {
-
+    
+    $datarest['kode'] = $kode;
+    $datarest['email'] = $email;
+    $datarest['password'] = $password;
+    $datarest['kode_dokter'] = $kode_dokter;
+    $datarest['sip'] = $sip;
+    
+    $data['code'] = 200;
+    $data['dokter'] = $datarest;
 }
 
-$dokter['kode'] = $kode;
-$dokter['email'] = $email;
-$dokter['password'] = $password;
-$dokter['kode_dokter'] = $kode_dokter;
-$dokter['sip'] = $sip;
-
-$data['code'] = 200;
-$data['dokter'] = $dokter;
 
 echo json_encode($data);
 
@@ -77,29 +78,29 @@ require_once "../../library/SMTP.php";
 // $mail->SMTPDebug = 3;
 $mail = new PHPMailer();
 $mail->isSMTP();
-$mail->Host = "mbx.averin.co.id"; //host mail server (sesuaikan dengan mail hosting Anda)
+$mail->Host = "mail.metir.my.id"; //host mail server (sesuaikan dengan mail hosting Anda)
 $mail->SMTPAuth = true;
 
-$mail->Username = "adokter@averin.co.id";   //nama-email smtp
-$mail->Password = "Averin@2023!";           //password email smtp
+$mail->Username = "mtaufikrama@metir.my.id";   //nama-email smtp
+$mail->Password = "MeTiR102!";           //password email smtp
 
 $mail->SMTPSecure = "ssl";
 $mail->Port = 465;
-$mail->From = "adokter@averin.co.id"; //email pengirim
-$mail->FromName = "A-DOKTER"; //nama pengirim
+$mail->From = "mtaufikrama@metir.my.id"; //email pengirim
+$mail->FromName = "MeTiR"; //nama pengirim
 $mail->addAddress($email, "");
 
 $recipients = array(
-    'adokter@averin.co.id' => 'CC 1',
+    'mtaufikrama@metir.my.id' => 'CC 1',
     // ..
 );/**/
 foreach ($recipients as $email => $name) {
     $mail->AddCC($email, $name);
 }
 
-$mail->isHTML(true);
-$subject = 'RESET PASSWORD A-DOKTER';
-$message = $keterangan;
+// $mail->isHTML(true);
+// $subject = 'RESET PASSWORD A-DOKTER';
+// $message = $keterangan;
 
 $mail->isHTML(true);
 $subject = 'PASSWORD AKTIVASI A-DOKTER';

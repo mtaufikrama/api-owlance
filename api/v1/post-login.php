@@ -2,10 +2,11 @@
 
 include "cek-token.php";
 
-$username	=$User;
-$pass 		=enkrip($Pass);
+// username, password
 
-$SqlGetAksesPx="SELECT id_dd_user, id_dd_user_group, no_induk from dd_user where username = '$username' AND password = '$pass';";
+$pass   = enkrip($password);
+
+$SqlGetAksesPx  = "SELECT id_dd_user, id_dd_user_group, no_induk from dd_user where username = '$username' AND password = '$pass';";
 
 $RunGetAksesPx=$db->Execute($SqlGetAksesPx);
 while($TplGetAksesPx=$RunGetAksesPx->fetchRow()) {
