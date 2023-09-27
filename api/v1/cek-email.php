@@ -1,21 +1,20 @@
 <?php
 
 include "cek-token.php";
-include "../antol/cek-jenis-kelamin.php";
 
-//username
-
+//email
+echo 'kontol';
 $cek = baca_tabel("user", "count(email)", "where email='$email'");
 
 if ($cek > 0) {
 
-    $datarest['code'] = 500;
-    $datarest['msg'] = "Email Sudah Digunakan!";
+    $data['code']   = 500;
+    $data['msg']    = "Email Sudah Digunakan!";
 
 } else {
 
-    $data['code'] = 200;
-    $data['msg'] = "Email tidak Terdaftar";
+    $data['code']   = 200;
+    $data['msg']    = "Email tidak Terdaftar";
 
 }
 

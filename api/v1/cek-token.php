@@ -10,13 +10,6 @@ if ($headers['X-Api-Token']) {
 	$token = $headers['x-api-token']; // Apache
 }
 
-if ($headers['MTR']){
-	$q['code']=500;
-	$q['msg']='Aplikasi harus update';
-	echo json_encode($q);
-	die;
-}
-
 $useRR=extrakToken($token);
 // print_r($useRR);
 /* -- cek akses out -- */
@@ -24,7 +17,7 @@ $KodeApi	=$useRR['uid'];
 $KeyApi		=$useRR['uname'];
 $KeyCode	=$useRR['password'];
 $iss		=$useRR['iss'];
-$SqlGetToken="SELECT IDApi,KodeApi,KeyApi,KeyCode from ref_api_dmedis where KodeApi='$KodeApi' AND KeyApi='$KeyApi' AND KeyCode='$KeyCode'";
+$SqlGetToken="SELECT IDApi,KodeApi,KeyApi,KeyCode from login where KodeApi='$KodeApi' AND KeyApi='$KeyApi' AND KeyCode='$KeyCode'";
 $RunGetToken=$db->Execute($SqlGetToken);
 while($TplGetToken=$RunGetToken->fetchRow()){
 	foreach($TplGetToken as $key=>$val){
