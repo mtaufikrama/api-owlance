@@ -3,7 +3,6 @@
 include "cek-token.php";
 
 //email
-echo 'kontol';
 $cek = baca_tabel("user", "count(email)", "where email='$email'");
 
 if ($cek > 0) {
