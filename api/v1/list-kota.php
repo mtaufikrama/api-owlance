@@ -7,7 +7,7 @@ include "cek-token.php";
 //id_provinsi
 
 if ($id_provinsi != "") {
-    $SqlGetKota="SELECT ID_DC_KOTA as kode,NAMA_KOTA as nama from dc_kota where ID_DC_PROPINSI='$id_provinsi'";
+    $SqlGetKota="SELECT ID_DC_KOTA as kode,NAMA_KOTA as nama from kota where ID_DC_PROPINSI='$id_provinsi'";
 } else {
     $data['code']=500;
     $data['msg']='ID Provinsi tidak ada';

@@ -3,12 +3,20 @@ include "cek-token.php";
 
 // username
 
-$SqlGetSpesialisasi="SELECT ";
+$id_user = baca_tabel('user','id',"where username='$username'");
 
-$RunGetSpesialisasi=$db->Execute($SqlGetSpesialisasi);
+$sqlFeed="SELECT a.id, a.caption, a.waktu, c.nama
+from feed a 
+join followers b on a.id_user=b.id_user 
+join user c on b.id_followers=c.id 
+where b.id_user = $id_user
+order by a.waktu desc limit 20";
 
-while($TplGetSpesialisasi=$RunGetSpesialisasi->fetchRow()){
-	$data[]=$TplGetSpesialisasi;
+$runFeed=$db->Execute($sqlFeed);
+
+while($getFeed=$runFeed->fetchRow()){;
+	$getFeed['id_name'] = 'feed';
+	$feed[]=$getFeed;
 }
 
 if(is_array($data)){

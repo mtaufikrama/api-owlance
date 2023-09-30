@@ -9,7 +9,7 @@ if ($id_kota == '') {
 	die();
 }
 
-$SqlGetSpesialisasi="SELECT id_dc_kecamatan as kode, nama_kecamatan as nama from dc_kecamatan where id_dc_kota=$id_kota;";
+$SqlGetSpesialisasi="SELECT id_dc_kecamatan as kode, nama_kecamatan as nama from kecamatan where id_dc_kota=$id_kota;";
 
 $RunGetSpesialisasi=$db->Execute($SqlGetSpesialisasi);
 
