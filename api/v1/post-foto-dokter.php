@@ -18,7 +18,7 @@ if ($file['error'] === UPLOAD_ERR_OK) {
     $cek = move_uploaded_file($tempFilePath, $targetFilePath);
 
     if ($cek) {
-        
+
         // Mengirim respons sukses
         $response = array(
             'code' => 200,

@@ -9,3 +9,4 @@ $json = dekrip($dataSend);
 $enkrip = base64_decode($json);
 $dekrip = json_decode($enkrip, true);
 echo $dekrip;
+?>

@@ -7,3 +7,4 @@ $json = json_encode($dataSend);
 $enkrip = base64_encode($json);
 $dekrip = enkrip($enkrip);
 echo $dekrip;
+?>

@@ -9,7 +9,7 @@ $foto = $_FILES['foto'];
 echo $no_mr . $foto['name'];
 die;
 
-$fq['nama_gambar']=$foto['name'];
+$fq['nama_gambar'] = $foto['name'];
 //ukuran gambar
 $fq['ukuran_gambar'] = $foto['size'];
 
@@ -20,22 +20,22 @@ $fq['width'] = $fq['fileinfo'][0];
 $fq['height'] = $fq['fileinfo'][1];
 
 //file gambar
-$fq['file_gambar']=addslashes(file_get_contents($foto['tmp_name']));
+$fq['file_gambar'] = addslashes(file_get_contents($foto['tmp_name']));
 
-if($fq['ukuran_gambar'] > 81920) {
+if ($fq['ukuran_gambar'] > 81920) {
     $data['code'] = 500;
     $data['msg'] = 'Ukuran gambar melebihi 80kb';
 } elseif ($fq['width'] > "480" || $fq['height'] > "640") {
-	
+
     $data['code'] = 500;
     $data['msg'] = 'Ukuran gambar harus 480x640';
 } else {
-	$we['no_mr'] = $no_mr;
-	$we['foto_pasien'] = $fq['file_gambar'];
-    $sql=insert_tabel('mt_master_pasien_img', $we);
+    $we['no_mr'] = $no_mr;
+    $we['foto_pasien'] = $fq['file_gambar'];
+    $sql = insert_tabel('mt_master_pasien_img', $we);
     if ($sql) {
-		$data['code'] = 500;
-		$data['msg'] = 'Ukuran gambar harus 480x640';
+        $data['code'] = 500;
+        $data['msg'] = 'Ukuran gambar harus 480x640';
         echo json_encode($fq);
     } else {
         echo 'Simpan data gagal';

@@ -1,145 +1,156 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>A- Dokter</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/pacicon.png"/>
-    <!-- Place favicon.ico in the root directory -->
 
-    <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-alpha-2.min.css" />
-    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<title>A- Dokter</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/pacicon.png" />
+	<!-- Place favicon.ico in the root directory -->
 
-    <!-- ========================= preloader start ========================= -->
-    <div class="preloader">
-      <div class="loader">
-        <div class="ytp-spinner">
-          <div class="ytp-spinner-container">
-            <div class="ytp-spinner-rotator">
-              <div class="ytp-spinner-left">
-                <div class="ytp-spinner-circle"></div>
-              </div>
-              <div class="ytp-spinner-right">
-                <div class="ytp-spinner-circle"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-		<!-- preloader end -->
-		
+	<!-- ========================= CSS here ========================= -->
+	<link rel="stylesheet" href="assets/css/bootstrap-5.0.0-alpha-2.min.css" />
+	<link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/animate.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-    <!-- ========================= header start ========================= -->
-    <header class="header">
-      <div class="navbar-area">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12">
-              <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.php">
-                  <img src="assets/img/logo/logo.svg" alt="Logo" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="toggler-icon"></span>
-                  <span class="toggler-icon"></span>
-                  <span class="toggler-icon"></span>
-                </button>
+<body>
+	<!--[if lte IE 9]>
+	  <p class="browserupgrade">
+		You are using an <strong>outdated</strong> browser. Please
+		<a href="https://browsehappy.com/">upgrade your browser</a> to improve
+		your experience and security.
+	  </p>
+	<![endif]-->
 
-                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                  <ul id="nav" class="navbar-nav ml-auto">
-                    <!-- <li class="nav-item">
-                      <a class="page-scroll" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#about">About</a>
-                    </li> -->
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-						<a href="https://a-dokter.id/form_login.php">Login</a>
-                    </li>
-
-					<li class="nav-item">
-						<a href="https://demo.a-dokter.id/form_login.php">Login Trial</a>
-                    </li>
-					<li class="nav-item">
-						<a href="https://satusehat.kemkes.go.id/platform/login">Login Satu Sehat</a>
-                    </li>
-
-					<div class="dropdown" style="margin-left: 30px; margin-top: 4px; ">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
-						  Registrasi
-						</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						  <li><a class="dropdown-item" href="https://a-dokter.id/register_dokter.php">Dokter</a></li>
-						  <li><a class="dropdown-item" href="https://a-dokter.id/register_dosen.php">Dosen</a></li>
-						  <li><a class="dropdown-item" href="https://a-dokter.id/register_mahasiswa.php">Mahasiswa</a></li>
-						  <li><a class="dropdown-item" href="https://satusehat.kemkes.go.id/platform/welcome">Satu Sehat</a></li>
-						</ul>
-					  </div>
-                  </ul>
-                </div>
-                <!-- navbar collapse -->
-              </nav>
-              <!-- navbar -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
-      </div>
-      <!-- navbar area -->
-    </header>
-    <!-- ========================= header end ========================= -->
-
-    <!-- ========================= hero-section start ========================= -->
-    <section id="home" class="hero-section">
-			<div class="hero-shape">
-				<img src="assets/img/hero/hero-shape.svg" alt="" class="shape">
-			</div>
-      <div class="container">
-        <div class="row align-items-center" style="margin-top: 90px;">
-          <div class="col-lg-6">
-            <div class=" hero-content">
-              <h1 class=" wow fadeInUp" data-wow-delay=".2s"> <font color="#4a90e2">A-Dokter</font><font color="#576975"><span> Aplikasi dokter berbasis cloud</font></span> </h1>
-              <p class="wow fadeInUp" data-wow-delay=".4s">
-                Aplikasi dokter berbasis cloud untuk meningkatkan kualitas pelayanan praktek dokter mandiri baik untuk praktek dokter umum, spesialis atau gigi yang telah dilengkapi dengan <font style="font-weight: bold; color: #1BABF3;"> E-Medical Record </font> yang sudah sesuai dengan standard <font style="font-weight: bold; color: #1BABF3;">Satu Sehat</font>.
-              </p>
-              
-            </div>
-					</div>
-					<div class="col-lg-6">
-						<div class="hero-img wow fadeInUp" data-wow-delay=".5s">
-							<img src="assets/img/hero/hero-img.png" alt="">
+	<!-- ========================= preloader start ========================= -->
+	<div class="preloader">
+		<div class="loader">
+			<div class="ytp-spinner">
+				<div class="ytp-spinner-container">
+					<div class="ytp-spinner-rotator">
+						<div class="ytp-spinner-left">
+							<div class="ytp-spinner-circle"></div>
+						</div>
+						<div class="ytp-spinner-right">
+							<div class="ytp-spinner-circle"></div>
 						</div>
 					</div>
-					
-        </div>
-      </div>
-    </section>
-		<!-- ========================= hero-section end ========================= -->
-		<!-- ========================= service-section end ========================= -->
-		<!-- <section id="services" class="service-section pt-150">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- preloader end -->
+
+
+	<!-- ========================= header start ========================= -->
+	<header class="header">
+		<div class="navbar-area">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-12">
+						<nav class="navbar navbar-expand-lg">
+							<a class="navbar-brand" href="index.php">
+								<img src="assets/img/logo/logo.svg" alt="Logo" />
+							</a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse"
+								data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+								aria-expanded="false" aria-label="Toggle navigation">
+								<span class="toggler-icon"></span>
+								<span class="toggler-icon"></span>
+								<span class="toggler-icon"></span>
+							</button>
+
+							<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+								<ul id="nav" class="navbar-nav ml-auto">
+									<li class="nav-item">
+										<a class="page-scroll" href="#home">Home</a>
+									</li>
+									<li class="nav-item">
+										<a href="https://api.owlance.metir.my.id/form_login.php">Login</a>
+									</li>
+
+									<li class="nav-item">
+										<a href="https://api.owlance.metir.my.id/form_login.php">Login Trial</a>
+									</li>
+									<li class="nav-item">
+										<a href="https://satusehat.kemkes.go.id/platform/login">Login Satu Sehat</a>
+									</li>
+
+									<div class="dropdown" style="margin-left: 30px; margin-top: 4px; ">
+										<button class="btn btn-secondary dropdown-toggle" type="button"
+											id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+											Registrasi
+										</button>
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+											<li><a class="dropdown-item"
+													href="https://api.owlance.metir.my.id/register_dokter.php">Dokter</a>
+											</li>
+											<li><a class="dropdown-item"
+													href="https://api.owlance.metir.my.id/register_dosen.php">Dosen</a>
+											</li>
+											<li><a class="dropdown-item"
+													href="https://api.owlance.metir.my.id/register_mahasiswa.php">Mahasiswa</a>
+											</li>
+											<li><a class="dropdown-item"
+													href="https://satusehat.kemkes.go.id/platform/welcome">Satu
+													Sehat</a></li>
+										</ul>
+									</div>
+								</ul>
+							</div>
+							<!-- navbar collapse -->
+						</nav>
+						<!-- navbar -->
+					</div>
+				</div>
+				<!-- row -->
+			</div>
+			<!-- container -->
+		</div>
+		<!-- navbar area -->
+	</header>
+	<!-- ========================= header end ========================= -->
+
+	<!-- ========================= hero-section start ========================= -->
+	<section id="home" class="hero-section">
+		<div class="hero-shape">
+			<img src="assets/img/hero/hero-shape.svg" alt="" class="shape">
+		</div>
+		<div class="container">
+			<div class="row align-items-center" style="margin-top: 90px;">
+				<div class="col-lg-6">
+					<div class=" hero-content">
+						<h1 class=" wow fadeInUp" data-wow-delay=".2s">
+							<font color="#4a90e2">A-Dokter</font>
+							<font color="#576975"><span> Aplikasi dokter berbasis cloud</font></span>
+						</h1>
+						<p class="wow fadeInUp" data-wow-delay=".4s">
+							Aplikasi dokter berbasis cloud untuk meningkatkan kualitas pelayanan praktek dokter mandiri
+							baik untuk praktek dokter umum, spesialis atau gigi yang telah dilengkapi dengan <font
+								style="font-weight: bold; color: #1BABF3;"> E-Medical Record </font> yang sudah sesuai
+							dengan standard <font style="font-weight: bold; color: #1BABF3;">Satu Sehat</font>.
+						</p>
+
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="hero-img wow fadeInUp" data-wow-delay=".5s">
+						<img src="assets/img/hero/hero-img.png" alt="">
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- ========================= hero-section end ========================= -->
+	<!-- ========================= service-section end ========================= -->
+	<!-- <section id="services" class="service-section pt-150">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-xl-12 col-lg-8">
@@ -152,90 +163,109 @@
 				</div>
 			</div>
 		</section> -->
-		<section id="received" class="about-section received-section pt-150">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6">
-						<div class="about-img received-img wow fadeInUp" data-wow-delay=".5s">
-							<img src="assets/img/delivery/gambar3.jpg" alt=""style="height:400px ; width: 400px ;">
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="about-content received-content">
-							<div class="section-title">
-								<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 50px;">Apa itu<font color="#4a90e2"> A-Dokter?</font></span>
-								<p class="mb-35 wow fadeInUp" data-wow-delay=".6s">A-Dokter adalah system management Dokter Praktek/Gigi berbasis cloud yang mencakup seluruh perjalanan pasien mulai dari pendaftaran pasien dan penjadwalan janji temu sampai pasien pulang. A-Dokter telah dilengkapi dengan <font style="font-weight: bold; color: #1BABF3;">E-Registrasi</font>, <font style="font-weight: bold; color: #1BABF3;">E-Medical Record</font> dan <font style="font-weight: bold; color: #1BABF3;">E-Billing</font> yang telah dispesialisasikan untuk pelayanan praktek dokter mandiri.</p>	
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- ========================= service-section start ========================= -->
-		
-		<section id="how" class="delivery-section pt-150">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-5">
-						<div class="delivery-content">
-							<div class="section-title">
-								<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 30px;">Kenapa Pakai<font color="#4a90e2"> A-Dokter?</font></span>
-								<p class="mb-35 wow fadeInUp" data-wow-delay=".6s" style="font-size: 11;">
-									<font color="#4a90e2">A-Dokter</font> telah mencakup <font style="font-weight: bold; color: #1BABF3;">E-Medical Record</font> yang telah diwajibkan oleh kemenkes pada Permenkes No. 24 tahun 2022 dan telah mencakup semua metadata yang diwajibkan oleh kemenkes untuk dimasukkan kedalam system management klinik tersebut.
-									<br>
-									<br>
-									<font color="#4a90e2">A-Dokter</font> mempermudah pendaftaran pasien dengan penggunaan mobile app pasien yang terhubung langsung kedalam system management klinik.
-									<br>
-									<br>
-									<font color="#4a90e2">A-Dokter</font> meminimalisir harga karena berupa cloud-based system, pihak dokter tidak perlu menyiapkan infrastruktur besar (server dsb.) dan cukup menyiapkan komputer dengan akses internet yang memadai.
-									</p>
-								
-							</div>
-							
-						</div>
-					</div>
-					<div class="col-lg-7 order-first order-lg-last">
-						<div class="delivery-img wow fadeInUp" data-wow-delay=".5s">
-							<img src="assets/img/delivery/delivery2.jpg" alt="" style="height:600px ; width: 600px ;">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- ========================= service-section end ========================= -->
-		<!-- ========================= service-section start ========================= -->
-		<!-- ========================= about-section start ========================= -->
-		<!-- ========================= about-section start ========================= -->
-		<div class="s-heading">
-			<h1>Keuntungan memakai <font color="#4a90e2">A-Dokter</font></h1>
-			<!-- <p>We Provide The Best In Class Servies For Our Customers</p> -->
-			</div>
+	<section id="received" class="about-section received-section pt-150">
 		<div class="container">
-        <div class="row">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<div class="about-img received-img wow fadeInUp" data-wow-delay=".5s">
+						<img src="assets/img/delivery/gambar3.jpg" alt="" style="height:400px ; width: 400px ;">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="about-content received-content">
+						<div class="section-title">
+							<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 50px;">Apa itu<font
+									color="#4a90e2"> A-Dokter?</font></span>
+							<p class="mb-35 wow fadeInUp" data-wow-delay=".6s">A-Dokter adalah system management Dokter
+								Praktek/Gigi berbasis cloud yang mencakup seluruh perjalanan pasien mulai dari
+								pendaftaran pasien dan penjadwalan janji temu sampai pasien pulang. A-Dokter telah
+								dilengkapi dengan <font style="font-weight: bold; color: #1BABF3;">E-Registrasi</font>,
+								<font style="font-weight: bold; color: #1BABF3;">E-Medical Record</font> dan <font
+									style="font-weight: bold; color: #1BABF3;">E-Billing</font> yang telah
+								dispesialisasikan untuk pelayanan praktek dokter mandiri.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ========================= service-section start ========================= -->
+
+	<section id="how" class="delivery-section pt-150">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-5">
+					<div class="delivery-content">
+						<div class="section-title">
+							<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 30px;">Kenapa Pakai<font
+									color="#4a90e2"> A-Dokter?</font></span>
+							<p class="mb-35 wow fadeInUp" data-wow-delay=".6s" style="font-size: 11;">
+								<font color="#4a90e2">A-Dokter</font> telah mencakup <font
+									style="font-weight: bold; color: #1BABF3;">E-Medical Record</font> yang telah
+								diwajibkan oleh kemenkes pada Permenkes No. 24 tahun 2022 dan telah mencakup semua
+								metadata yang diwajibkan oleh kemenkes untuk dimasukkan kedalam system management klinik
+								tersebut.
+								<br>
+								<br>
+								<font color="#4a90e2">A-Dokter</font> mempermudah pendaftaran pasien dengan penggunaan
+								mobile app pasien yang terhubung langsung kedalam system management klinik.
+								<br>
+								<br>
+								<font color="#4a90e2">A-Dokter</font> meminimalisir harga karena berupa cloud-based
+								system, pihak dokter tidak perlu menyiapkan infrastruktur besar (server dsb.) dan cukup
+								menyiapkan komputer dengan akses internet yang memadai.
+							</p>
+
+						</div>
+
+					</div>
+				</div>
+				<div class="col-lg-7 order-first order-lg-last">
+					<div class="delivery-img wow fadeInUp" data-wow-delay=".5s">
+						<img src="assets/img/delivery/delivery2.jpg" alt="" style="height:600px ; width: 600px ;">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ========================= service-section end ========================= -->
+	<!-- ========================= service-section start ========================= -->
+	<!-- ========================= about-section start ========================= -->
+	<!-- ========================= about-section start ========================= -->
+	<div class="s-heading">
+		<h1>Keuntungan memakai <font color="#4a90e2">A-Dokter</font>
+		</h1>
+		<!-- <p>We Provide The Best In Class Servies For Our Customers</p> -->
+	</div>
+	<div class="container">
+		<div class="row">
 			<div class="col-lg-3">
 				<div class="we-do-item mb-30">
 					<div class="we-do-icon mb-25">
 						<img src="assets/img/service/service-icon-10.png" alt="" style="height:120px ; width: 120px ;">
-						</div>
+					</div>
 					<h5>Low-Investment</h5>
-					<h7 style=" text-align: center;">Karena system berbasis cloud pihak klinik tidak perlu menyiapkan infrastruktur yang berbiaya tinggi.</h7>
+					<h7 style=" text-align: center;">Karena system berbasis cloud pihak klinik tidak perlu menyiapkan
+						infrastruktur yang berbiaya tinggi.</h7>
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="we-do-item mb-30">
 					<div class="we-do-icon mb-25">
 						<img src="assets/img/service/service-icon-7.png" alt="" style="height:120px ; width: 120px ;">
-						
+
 					</div>
 					<h5>User Friendly</h5>
-					<h7>Mudah dipakai dan dilengkapi dengan fitur seperti database ICD-10 dan HISS (Health Information Support System) yang dapat mempercepat pengisian SOAP pasien.</h7>
+					<h7>Mudah dipakai dan dilengkapi dengan fitur seperti database ICD-10 dan HISS (Health Information
+						Support System) yang dapat mempercepat pengisian SOAP pasien.</h7>
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="we-do-item mb-30">
 					<div class="we-do-icon mb-25">
 						<img src="assets/img/service/service-icon-12.png" alt="" style="height:120px ; width: 120px ;">
-					
+
 					</div>
 					<h5>Standardized</h5>
 					<h7>Telah terstandar berbasiskan metadata yang diatur dalam Permenkes No. 24 Tahun 2022</h7>
@@ -247,18 +277,20 @@
 						<img src="assets/img/service/service-icon-11.png" alt="" style="height:120px ; width: 120px ;">
 					</div>
 					<h5>Mobile Integration</h5>
-					<h7>Telah terintegrasi dengan mobile system yang membantu pasien untuk mencari, membuat janji dan melihat histori medis yang telah dilakukan oleh pasien.</h7>
+					<h7>Telah terintegrasi dengan mobile system yang membantu pasien untuk mencari, membuat janji dan
+						melihat histori medis yang telah dilakukan oleh pasien.</h7>
 				</div>
 			</div>
-    </div>
+		</div>
 		<!-- ========================= about-section end ========================= -->
 		<section class="services">
 			<!--heading---------------->
 			<div class="s-heading">
-				<h1>Fitur<font color="#4a90e2"> A-Dokter</font></h1>
-			<!-- <p>We Provide The Best In Class Servies For Our Customers</p> -->
+				<h1>Fitur<font color="#4a90e2"> A-Dokter</font>
+				</h1>
+				<!-- <p>We Provide The Best In Class Servies For Our Customers</p> -->
 			</div>
-			
+
 			<div class="row">
 				<div class="card col-lg-2 col-md-5 ">
 					<div class="service-item mb-30">
@@ -267,8 +299,9 @@
 						</div>
 						<div class="service-content">
 							<h4>E-Registrasi</h4>
-							<p>System A-Dokter telah dilengkapi dengan system pendaftaran dan antrian pasien yang tehubung dengan aplikasi mobile pasien.</p>
-							
+							<p>System A-Dokter telah dilengkapi dengan system pendaftaran dan antrian pasien yang
+								tehubung dengan aplikasi mobile pasien.</p>
+
 						</div>
 						<div class="service-overlay img-bg"></div>
 					</div>
@@ -280,8 +313,9 @@
 						</div>
 						<div class="service-content">
 							<h4>E-Dokter</h4>
-							<p>SOAP digital telah dilengkapi database ICD-10, HISS (Health Information Support System) dan voice-to-text yang efektif.</p>
-							
+							<p>SOAP digital telah dilengkapi database ICD-10, HISS (Health Information Support System)
+								dan voice-to-text yang efektif.</p>
+
 						</div>
 						<div class="service-overlay img-bg"></div>
 					</div>
@@ -289,13 +323,17 @@
 				<div class="card col-lg-2 col-md-6">
 					<div class="service-item mb-30">
 						<div class="service-icon mb-25">
-							<img src="assets/img/delivery/emedicalrecord.png" alt="" style="height:70px ; width: 70px ;">
+							<img src="assets/img/delivery/emedicalrecord.png" alt=""
+								style="height:70px ; width: 70px ;">
 						</div>
 						<div class="service-content">
 							<h5>E-Medical Record</h5>
 							<h4></h4>
-							<p>Semua terekam dalam tindakan E-Rekam Medis pasien yang disesuaikan dengan kebutuhan pada Permenkes No. 24 Tahun 2022. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
-							
+							<p>Semua terekam dalam tindakan E-Rekam Medis pasien yang disesuaikan dengan kebutuhan pada
+								Permenkes No. 24 Tahun 2022.
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</p>
+
 						</div>
 						<div class="service-overlay img-bg"></div>
 					</div>
@@ -303,12 +341,13 @@
 				<div class="card col-lg-2 col-md-6">
 					<div class="service-item mb-30">
 						<div class="service-icon mb-2">
-							<img src="assets/img/delivery/eresep.png" alt=""style="height:70px ; width: 70px ;">
+							<img src="assets/img/delivery/eresep.png" alt="" style="height:70px ; width: 70px ;">
 						</div>
 						<div class="service-content">
 							<h4>E-Resep</h4>
-							<p>Lebih praktis meresepkan obat ke pasien dengan adanya integrasi formularium klinik dan mobile application.</p>
-							
+							<p>Lebih praktis meresepkan obat ke pasien dengan adanya integrasi formularium klinik dan
+								mobile application.</p>
+
 						</div>
 						<div class="service-overlay img-bg"></div>
 					</div>
@@ -320,8 +359,9 @@
 						</div>
 						<div class="service-content">
 							<h4>E-Billing</h4>
-							<p>System billing dokter mulai dari penarifan secara unit cost, penginputan tindakan sampai pembayaran pada kasir.</p>
-							
+							<p>System billing dokter mulai dari penarifan secara unit cost, penginputan tindakan sampai
+								pembayaran pada kasir.</p>
+
 						</div>
 						<div class="service-overlay img-bg"></div>
 					</div>
@@ -375,9 +415,9 @@
 					</div>
 				</div> -->
 			</div>
-			</section>
+		</section>
 		<!-- ========================= delivery-section start ========================= -->
-	
+
 		<!-- ========================= delivery-section end ========================= -->
 
 		<!-- ========================= about-section start ========================= -->
@@ -392,9 +432,14 @@
 					<div class="col-lg-6">
 						<div class="about-content received-content">
 							<div class="section-title">
-								<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 30px;"><font color="#4a90e2">Digital Signature </font>Ready</span>
-								
-								<p class="wow fadeInUp" data-wow-delay=".6s">Sebagai pemenuhan kebutuhan Permenkes No. 24 tahun 2022 pasal 31, A-Dokter telah bekerjasama dengan Privy.id untuk menghadirkan digital signature sehingga system bersifat paperless dan lebih simpel untuk melakukan penandatanganan dokumen medis pasien.</p>
+								<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 30px;">
+									<font color="#4a90e2">Digital Signature </font>Ready
+								</span>
+
+								<p class="wow fadeInUp" data-wow-delay=".6s">Sebagai pemenuhan kebutuhan Permenkes No.
+									24 tahun 2022 pasal 31, A-Dokter telah bekerjasama dengan Privy.id untuk
+									menghadirkan digital signature sehingga system bersifat paperless dan lebih simpel
+									untuk melakukan penandatanganan dokumen medis pasien.</p>
 							</div>
 						</div>
 					</div>
@@ -408,14 +453,18 @@
 					<div class="col-lg-5">
 						<div class="delivery-content">
 							<div class="section-title">
-								<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 30px;">Integrated <font color="#4a90e2">Patient Mobile Application</font></span>
+								<span class="wow fadeInUp" data-wow-delay=".2s" style="font-size: 30px;">Integrated
+									<font color="#4a90e2">Patient Mobile Application</font>
+								</span>
 								<p class="mb-35 wow fadeInUp" data-wow-delay=".6s" style="font-size: 11;">
-									Aplikasi mobile A-Dokter dilengkapi telah terintegrasi penuh dengan sisi dokter sehingga pendaftaran dan buat janji, histori pemeriksaan dan peresepan jauh lebih praktis bagi pasien.
-									
-									</p>
-								
+									Aplikasi mobile A-Dokter dilengkapi telah terintegrasi penuh dengan sisi dokter
+									sehingga pendaftaran dan buat janji, histori pemeriksaan dan peresepan jauh lebih
+									praktis bagi pasien.
+
+								</p>
+
 							</div>
-							
+
 						</div>
 					</div>
 					<div class="col-lg-7 order-first order-lg-last">
@@ -426,42 +475,44 @@
 				</div>
 			</div>
 		</section>
-		
-		<!-- ========================= testimonial-section start ========================= -->
-		
-    <!-- ========================= testimonial-section end ========================= -->
 
-    <!-- ========================= partners-section start ========================= -->
-    <section id="partner" class="partner-section pt-60 pb-60">
-		<div class="s-heading">
-			<h1>Powered by</h1>
-		<!-- <p>We Provide The Best In Class Servies For Our Customers</p> -->
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-sm-6">
-					<div class="wow fadeInUp" data-wow-delay=".2s">
-						<img src="assets/img/partners/logo_averin.png" alt="" style="height: 100px; width: 170px;">
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="wow fadeInUp" data-wow-delay=".4s">
-						<img src="assets/img/partners/logo_privy.png" alt="" style="height: 100px; width: 170px; margin-left: 140px; margin-bottom: 30px;">
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="wow fadeInUp" data-wow-delay=".6s">
-						<img src="assets/img/partners/logo_ipg.png" alt="" style="height: 100px; width: 170px; margin-left: 240px;">
-					</div>
-				</div>
-			
+		<!-- ========================= testimonial-section start ========================= -->
+
+		<!-- ========================= testimonial-section end ========================= -->
+
+		<!-- ========================= partners-section start ========================= -->
+		<section id="partner" class="partner-section pt-60 pb-60">
+			<div class="s-heading">
+				<h1>Powered by</h1>
+				<!-- <p>We Provide The Best In Class Servies For Our Customers</p> -->
 			</div>
-		</div>
-	</section>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<div class="wow fadeInUp" data-wow-delay=".2s">
+							<img src="assets/img/partners/logo_averin.png" alt="" style="height: 100px; width: 170px;">
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<div class="wow fadeInUp" data-wow-delay=".4s">
+							<img src="assets/img/partners/logo_privy.png" alt=""
+								style="height: 100px; width: 170px; margin-left: 140px; margin-bottom: 30px;">
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<div class="wow fadeInUp" data-wow-delay=".6s">
+							<img src="assets/img/partners/logo_ipg.png" alt=""
+								style="height: 100px; width: 170px; margin-left: 240px;">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
 		<!-- ========================= partners-section end ========================= -->
-		</div>
-    <!-- ========================= footer start ========================= -->
-    <footer id="footer" class="footer pt-100 pb-70">
+	</div>
+	<!-- ========================= footer start ========================= -->
+	<footer id="footer" class="footer pt-100 pb-70">
 		<div class="footer-shape">
 			<img src="assets/img/footer/footer-left.svg" alt="" class="shape shape-1">
 			<img src="assets/img/footer/footer-right.svg" alt="" class="shape shape-2">
@@ -544,22 +595,26 @@
 						</ul>
 					</div>
 				</div>
-<p>Designed and Developed by <a href="https://averin.co.id/" style="color: #fff;" rel="nofollow">PT. Averin Teknologi Informatika</a></p>
+				<p>Designed and Developed by <a href="https://averin.co.id/" style="color: #fff;" rel="nofollow">PT.
+						Averin Teknologi Informatika</a></p>
 			</div>
 		</div>
 	</footer>
-    <!-- ========================= footer end ========================= -->
+	<!-- ========================= footer end ========================= -->
 
-    <!-- ========================= scroll-top ========================= -->
-    <a href="#" class="scroll-top btn-hover">
-      <i class="lni lni-chevron-up"></i>
-    </a>
+	<!-- ========================= scroll-top ========================= -->
+	<a href="#" class="scroll-top btn-hover">
+		<i class="lni lni-chevron-up"></i>
+	</a>
 
-    <!-- ========================= JS here ========================= -->
-    <script src="assets/js/bootstrap.5.0.0.alpha-2-min.js"></script>
-    <script src="assets/js/count-up.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+	<!-- ========================= JS here ========================= -->
+	<script src="assets/js/bootstrap.5.0.0.alpha-2-min.js"></script>
+	<script src="assets/js/count-up.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+		</script>
+	<script src="assets/js/main.js"></script>
+</body>
+
 </html>

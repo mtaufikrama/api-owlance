@@ -10,39 +10,39 @@ if ($headers['X-Api-Token']) {
 	$token = $headers['x-api-token']; // Apache
 }
 
-$useRR=extrakToken($token);
+$useRR = extrakToken($token);
 // print_r($useRR);
 /* -- cek akses out -- */
-$KodeApi	=$useRR['uid'];
-$KeyApi		=$useRR['uname'];
-$KeyCode	=$useRR['password'];
-$iss		=$useRR['iss'];
-$SqlGetToken="SELECT IDApi,KodeApi,KeyApi,KeyCode from login where KodeApi='$KodeApi' AND KeyApi='$KeyApi' AND KeyCode='$KeyCode'";
-$RunGetToken=$db->Execute($SqlGetToken);
-while($TplGetToken=$RunGetToken->fetchRow()){
-	foreach($TplGetToken as $key=>$val){
-		$$key=$val;
+$KodeApi = $useRR['uid'];
+$KeyApi = $useRR['uname'];
+$KeyCode = $useRR['password'];
+$iss = $useRR['iss'];
+$SqlGetToken = "SELECT IDApi,KodeApi,KeyApi,KeyCode from login where KodeApi='$KodeApi' AND KeyApi='$KeyApi' AND KeyCode='$KeyCode'";
+$RunGetToken = $db->Execute($SqlGetToken);
+while ($TplGetToken = $RunGetToken->fetchRow()) {
+	foreach ($TplGetToken as $key => $val) {
+		$$key = $val;
 	}
 }
-if($IDApi < 1){
-	$Resdata['code']=500;
-	$Resdata['msg']='Akses Ditolak';
+if ($IDApi < 1) {
+	$Resdata['code'] = 500;
+	$Resdata['msg'] = 'Akses Ditolak';
 	echo json_encode($dataRes);
 	die;
 }
 /* -- cek time out -- */
-if($useRR['exp']< strtotime(date("Y-m-d H:i:s"))){
-	$dataRes['code']=500;
-	$dataRes['msg']='Batas waktu akses selesai, silahkan generate token ulang :)';
+if ($useRR['exp'] < strtotime(date("Y-m-d H:i:s"))) {
+	$dataRes['code'] = 500;
+	$dataRes['msg'] = 'Batas waktu akses selesai, silahkan generate token ulang :)';
 	echo json_encode($dataRes);
 	die;
 }
-$dataSend = json_decode(file_get_contents("php://input"),TRUE);
-foreach($dataSend as $key=>$val){
-	$$key=$val;
+$dataSend = json_decode(file_get_contents("php://input"), TRUE);
+foreach ($dataSend as $key => $val) {
+	$$key = $val;
 }
-foreach($_FILES as $key=>$val){
-	$$key=$val;
+foreach ($_FILES as $key => $val) {
+	$$key = $val;
 }
 
 // include '../../var.php';

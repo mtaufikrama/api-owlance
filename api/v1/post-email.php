@@ -28,7 +28,7 @@ $mail->addAddress($email, "");
 $recipients = array(
     $from => 'CC 1',
     // ..
-);/**/
+); /**/
 foreach ($recipients as $email => $name) {
     $mail->AddCC($email, $name);
 }

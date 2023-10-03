@@ -4,14 +4,14 @@ include "cek-token.php";
 
 //email
 
-$password       = baca_tabel('dd_user', 'password', "where username='$email'");
+$password = baca_tabel('dd_user', 'password', "where username='$email'");
 // $emailuser      = baca_tabel('dd_user', 'username', "where username='$email'");
-$nama_pegawai   = baca_tabel('mt_karyawan', 'nama_pegawai', "where email='$email'");
+$nama_pegawai = baca_tabel('mt_karyawan', 'nama_pegawai', "where email='$email'");
 
-if ($password) { 
-    $arrUsername    = explode("@", $email);
-    $username       = $arrUsername[0];
-    $pw             = $username."NEW321!";
+if ($password) {
+    $arrUsername = explode("@", $email);
+    $username = $arrUsername[0];
+    $pw = $username . "NEW321!";
     $password = md5($pw);
 
     $data['password'] = $password;
@@ -19,20 +19,20 @@ if ($password) {
     $result = update_tabel('dd_user', $data, "where username='$email'");
 
     if ($result) {
-        $datax['code']  = 200;
-        $datax['msg']   = 'Kami akan mengirimkan password baru ke alamat email anda. Silahkan periksa kotak masuk atau di folder spam email';
+        $datax['code'] = 200;
+        $datax['msg'] = 'Kami akan mengirimkan password baru ke alamat email anda. Silahkan periksa kotak masuk atau di folder spam email';
     } else {
-        $datax['code']  = 500;
-        $datax['msg']   = 'Gagal Reset Password';
+        $datax['code'] = 500;
+        $datax['msg'] = 'Gagal Reset Password';
     }
 } else {
-    $datax['code']  = 500;
-    $datax['msg']   = 'Email tidak terdaftar';
+    $datax['code'] = 500;
+    $datax['msg'] = 'Email tidak terdaftar';
     echo json_encode($datax);
     die;
 }
 
- $emailuser = $email;
+$emailuser = $email;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -47,10 +47,10 @@ require_once "../../library/SMTP.php";
 $mail = new PHPMailer;
 $mail->isSMTP();
 $mail->Host = "mbx.averin.co.id"; //host mail server (sesuaikan dengan mail hosting Anda)
-$mail->SMTPAuth = true; 
+$mail->SMTPAuth = true;
 
-$mail->Username = "adokter@averin.co.id";   //nama-email smtp  
-$mail->Password = "Averin@2023!";           //password email smtp  
+$mail->Username = "adokter@averin.co.id"; //nama-email smtp  
+$mail->Password = "Averin@2023!"; //password email smtp  
 
 $mail->SMTPSecure = "ssl";
 $mail->Port = 465;
@@ -59,11 +59,11 @@ $mail->FromName = "A-DOKTER"; //nama pengirim
 $mail->addAddress($email, "");
 
 $recipients = array(
-	'adokter@averin.co.id' => 'CC 1',
-	// ..
-);/**/
+    'adokter@averin.co.id' => 'CC 1',
+    // ..
+); /**/
 foreach ($recipients as $email => $name) {
-	$mail->AddCC($email, $name);
+    $mail->AddCC($email, $name);
 }
 
 $mail->isHTML(true);

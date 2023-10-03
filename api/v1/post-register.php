@@ -4,34 +4,34 @@ include "cek-token.php";
 
 // username, nama, email, password, no_hp, foto
 
-$cekSebelummasukusername=baca_tabel("user", "count(username)", "  where username='$username'");
+$cekSebelummasukusername = baca_tabel("user", "count(username)", "  where username='$username'");
 
-if($cekSebelummasukusername > 0) {
+if ($cekSebelummasukusername > 0) {
 
-    $datarest['code']=500;
-    $datarest['msg']="Username Sudah Terdaftar";
+    $datarest['code'] = 500;
+    $datarest['msg'] = "Username Sudah Terdaftar";
     echo json_encode($datarest);
     die();
 
 }
 
-$cekSebelummasukemail=baca_tabel("user", "count(email)", "  where email='$email'");
+$cekSebelummasukemail = baca_tabel("user", "count(email)", "  where email='$email'");
 
-if($cekSebelummasukemail > 0) {
+if ($cekSebelummasukemail > 0) {
 
-    $datarest['code']=500;
-    $datarest['msg']="Email Sudah Terdaftar";
+    $datarest['code'] = 500;
+    $datarest['msg'] = "Email Sudah Terdaftar";
     echo json_encode($datarest);
     die();
 
 }
 
-$cekSebelummasukhp=baca_tabel("user", "count(no_hp)", "  where no_hp='$no_hp'");
+$cekSebelummasukhp = baca_tabel("user", "count(no_hp)", "  where no_hp='$no_hp'");
 
-if($cekSebelummasukhp > 0) {
+if ($cekSebelummasukhp > 0) {
 
-    $datarest['code']=500;
-    $datarest['msg']="No Hp Sudah Terdaftar";
+    $datarest['code'] = 500;
+    $datarest['msg'] = "No Hp Sudah Terdaftar";
     echo json_encode($datarest);
     die();
 }
@@ -47,16 +47,16 @@ $dataSend['foto'] = "data:" . $type . ";base64," . base64_encode($file);
 
 $result = insert_tabel("user", $dataSend);
 
-$kode   = baca_tabel('mt_karyawan', 'id_mt_karyawan', "where email='$email'");
+$kode = baca_tabel('mt_karyawan', 'id_mt_karyawan', "where email='$email'");
 
 if ($result) {
-    
+
     $datarest['kode'] = $kode;
     $datarest['email'] = $email;
     $datarest['password'] = $password;
     $datarest['kode_dokter'] = $kode_dokter;
     $datarest['sip'] = $sip;
-    
+
     $data['code'] = 200;
     $data['dokter'] = $datarest;
 }
@@ -81,8 +81,8 @@ $mail->isSMTP();
 $mail->Host = "mail.metir.my.id"; //host mail server (sesuaikan dengan mail hosting Anda)
 $mail->SMTPAuth = true;
 
-$mail->Username = "mtaufikrama@metir.my.id";   //nama-email smtp
-$mail->Password = "MeTiR102!";           //password email smtp
+$mail->Username = "mtaufikrama@metir.my.id"; //nama-email smtp
+$mail->Password = "MeTiR102!"; //password email smtp
 
 $mail->SMTPSecure = "ssl";
 $mail->Port = 465;
@@ -93,7 +93,7 @@ $mail->addAddress($email, "");
 $recipients = array(
     'mtaufikrama@metir.my.id' => 'CC 1',
     // ..
-);/**/
+); /**/
 foreach ($recipients as $email => $name) {
     $mail->AddCC($email, $name);
 }

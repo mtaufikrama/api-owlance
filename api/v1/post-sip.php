@@ -20,7 +20,7 @@ $data['tgl_akhir'] = $tgl_akhir;
 
 $result = insert_tabel('tc_sip', $data);
 
-if ($result){
+if ($result) {
     $data['blob_sip'] = base64_encode($datas);
     $datax['code'] = 200;
     $datax['msg'] = $data;
