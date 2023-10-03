@@ -1,17 +1,17 @@
 <?
-$AV_CONF=array();
+$AV_CONF = array();
 
-// $AV_CONF["db"]["type"]="mysqli";
-// $AV_CONF["db"]["user"]="zyarnfpx_metir";
-// $AV_CONF["db"]["pass"]="$534UlWhP";
-// $AV_CONF["db"]["name"]="zyarnfpx_db_owlance";
-// $AV_CONF["db"]["host"]="127.0.0.1";
- 
 $AV_CONF["db"]["type"]="mysqli";
-$AV_CONF["db"]["user"]="root";
-$AV_CONF["db"]["pass"]="";
-$AV_CONF["db"]["name"]="owlance";
+$AV_CONF["db"]["user"]="zyarnfpx_metir";
+$AV_CONF["db"]["pass"]="$534UlWhP";
+$AV_CONF["db"]["name"]="zyarnfpx_db_owlance";
 $AV_CONF["db"]["host"]="127.0.0.1";
+
+// $AV_CONF["db"]["type"] = "mysqli";
+// $AV_CONF["db"]["user"] = "root";
+// $AV_CONF["db"]["pass"] = "";
+// $AV_CONF["db"]["name"] = "owlance";
+// $AV_CONF["db"]["host"] = "127.0.0.1";
 
 // $AV_CONF["db"]["type"]="mssqlnative";
 // $AV_CONF["db"]["user"]="sa";
@@ -21,21 +21,21 @@ $AV_CONF["db"]["host"]="127.0.0.1";
 // $AV_CONF["db"]["host"]="192.168.1.20";
 
 
-$AV_CONF["etc"]["login_satu_saja"]=true;
-$AV_CONF["etc"]["session_time_out"]=15;
-$AV_CONF["etc"]["password_expired"]=true;
-$AV_CONF["etc"]["development"]=true;		// development flag, to track whether in development mode
-$AV_CONF["etc"]["log_history"]=true;	//log history query utk function olah_tabel (update,delete,insert);
+$AV_CONF["etc"]["login_satu_saja"] = true;
+$AV_CONF["etc"]["session_time_out"] = 15;
+$AV_CONF["etc"]["password_expired"] = true;
+$AV_CONF["etc"]["development"] = true; // development flag, to track whether in development mode
+$AV_CONF["etc"]["log_history"] = true; //log history query utk function olah_tabel (update,delete,insert);
 
 
-$AV_CONF["url"]["ws"]="https://tel.d-medis.id/";
+$AV_CONF["url"]["ws"] = "https://tel.d-medis.id/";
 
-$AV_CONF["skin"]["name"]="default";
+$AV_CONF["skin"]["name"] = "default";
 
-$AV_CONF["free_page"][]="/login.php";
-$AV_CONF["free_page"][]="/login_act.php";
-$AV_CONF["free_page"][]="/login1.php";
-$AV_CONF["free_page"][]="/login1_act.php";
+$AV_CONF["free_page"][] = "/login.php";
+$AV_CONF["free_page"][] = "/login_act.php";
+$AV_CONF["free_page"][] = "/login1.php";
+$AV_CONF["free_page"][] = "/login1_act.php";
 
 
 
@@ -60,14 +60,14 @@ $AV_CONF["ftp"]["strFTPUser"] = "rsjiwa";
 $AV_CONF["ftp"]["strFTPPass"] = "averin";
 $AV_CONF["ftp"]["fFTPPasive"] = true;
 
-$mtr["type"]="mysqli";
-$mtr["user"]="zyarnfpx_metir";
-$mtr["pass"]="$534UlWhP";
-$mtr["name"]="zyarnfpx_db_metir";
-$mtr["host"]="127.0.0.1";
+$mtr["type"] = "mysqli";
+$mtr["user"] = "zyarnfpx_metir";
+$mtr["pass"] = "$534UlWhP";
+$mtr["name"] = "zyarnfpx_db_metir";
+$mtr["host"] = "127.0.0.1";
 
-foreach($mtr as $key=>$val) {
-    $$key=$val;
+foreach ($mtr as $key => $val) {
+    $$key = $val;
 }
 
 ?>
