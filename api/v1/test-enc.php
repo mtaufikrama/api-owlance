@@ -3,8 +3,9 @@
 include '../encrypt.php';
 
 $dataSend = file_get_contents("php://input");
-$json = json_encode($dataSend);
-$enkrip = base64_encode($json);
+$json = json_decode($dataSend, true);
+$json1 = json_encode($json);
+$enkrip = base64_encode($json1);
 $dekrip = enkrip($enkrip);
 echo $dekrip;
 ?>

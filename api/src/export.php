@@ -4,6 +4,7 @@ include "../../_lib/function/db_login.php";
 include "jwt.php";
 include "../encrypt.php";
 include "../../_lib/function/function.random_string.php";
+include "../../_lib/function/function.encrypt_data.php";
 include "../../_lib/function/function.olah_tabel.php";
 include "../../_lib/function/function.max_kode_number.php";
 include "../../_lib/function/function.angka.php";
