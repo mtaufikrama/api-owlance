@@ -1,9 +1,9 @@
 <?php
-function encryptData($jsonencodedata = '')
+function encryptData($data = array())
 {
+    $jsonencodedata = json_encode($data);
     $enkrip = base64_encode($jsonencodedata);
     $dekrip = enkrip($enkrip);
-
     return $dekrip;
 }
 
@@ -15,4 +15,3 @@ function decryptData()
     $dekrip = json_decode($enkrip, true);
     return $dekrip;
 }
-?>

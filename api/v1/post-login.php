@@ -1,44 +1,39 @@
 <?php
 
-include "cek-token.php";
+include '../src/export.php';
+include '../src/change.php';
 
 // username, password
 
 $pass = enkrip($password);
 
-$SqlGetAksesPx = "SELECT id_dd_user, id_dd_user_group, no_induk from dd_user where username = '$username' AND password = '$pass';";
+$cekemail = baca_tabel('user', 'count(*)', "where email = '$username' or no_hp = $username or username = '$username'");
 
-$RunGetAksesPx = $db->Execute($SqlGetAksesPx);
-while ($TplGetAksesPx = $RunGetAksesPx->fetchRow()) {
-    $kelompok = $TplGetAksesPx['id_dd_user_group'];
-    $no_induk = $TplGetAksesPx['no_induk'];
-    $no_induk_dokter = baca_tabel('mt_karyawan', 'no_induk_dokter', "where no_induk='$no_induk' and email='$username'");
-    $flag = baca_tabel('mt_karyawan', 'flag_dokter', "where no_induk='$no_induk' and email='$username'");
+if ($cekemail > 0) {
+    $cek = baca_tabel('user', "count(*)", "where (email = '$username' or no_hp = $username or username = '$username') and pass = '$pass'");
+    if ($cek > 0) {
 
-    if ($kelompok == '1215' || $flag == '2') {
-        $dl['kode_kelompok'] = 2;
-        $dl['nama_kelompok'] = 'Dosen';
-        $dl['kode'] = $no_induk_dokter;
-    } elseif ($kelompok == '1216' || $flag == '3') {
-        $dl['kode_kelompok'] = 3;
-        $dl['nama_kelompok'] = 'Mahasiswa';
-        $dl['kode'] = $no_induk_dokter;
+        $data['id'] = generateID(15, 'login', 'id');
+        $data['id_user'] = baca_tabel('user', 'id_user', "where (email = '$username' or no_hp = $username or username = '$username') and pass = '$pass'");
+        $data['token'] = generateID(30, 'login', 'token');
+
+        $update = insert_tabel('login', $data);
+
+        if ($update) {
+            $dataRes['code'] = 200;
+            $dataRes['msg'] = 'Login Berhasil';
+            $dataRes['token'] = $data['token'];
+        } else {
+            $dataRes['code'] = 500;
+            $dataRes['msg'] = 'Login Gagal';
+        }
     } else {
-        $kode_dokter = baca_tabel('mt_karyawan', 'kode_dokter', "where no_induk='$no_induk'");
-        $dl['kode_kelompok'] = 1;
-        $dl['nama_kelompok'] = 'Dokter';
-        $dl['kode'] = $kode_dokter;
+        $dataRes['code'] = 300;
+        $dataRes['msg'] = 'Login Gagal';
     }
-    $arrData = $dl;
+} else {
+    $dataRes['code'] = 500;
+    $dataRes['msg'] = 'Email tidak terdaftar';
 }
 
-if (is_array($arrData)) {
-    //$kunci=getEncData($arrData);
-    $dataRes['code'] = 200;
-    $dataRes['res'] = $arrData;
-    echo json_encode($dataRes);
-} else {
-    $dataRes['code'] = 300;
-    $dataRes['msg'] = 'Maaf tidak ditemukan data pasien dengan data login anda';
-    echo json_encode($dataRes);
-}
+echo encryptData($dataRes);

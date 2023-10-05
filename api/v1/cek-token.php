@@ -4,11 +4,7 @@ include "../src/export.php";
 
 $headers = apache_request_headers();
 
-if ($headers['X-Api-Token']) {
-	$token = $headers['X-Api-Token']; // Nginx
-} else {
-	$token = $headers['x-api-token']; // Apache
-}
+$authorized = $headers['authorized'];
 
 $useRR = extrakToken($token);
 // print_r($useRR);
@@ -37,17 +33,10 @@ if ($useRR['exp'] < strtotime(date("Y-m-d H:i:s"))) {
 	echo json_encode($dataRes);
 	die;
 }
-$dataSend = json_decode(file_get_contents("php://input"), TRUE);
+$dataSend = decryptData();
 foreach ($dataSend as $key => $val) {
 	$$key = $val;
 }
 foreach ($_FILES as $key => $val) {
 	$$key = $val;
 }
-
-// include '../../var.php';
-
-// foreach($_GET as $key=>$val){
-// 	$$key=$val;
-// }
-?>
