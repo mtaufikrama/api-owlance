@@ -17,5 +17,4 @@ if ($cek > 0) {
 
 }
 
-echo json_encode($data);
-?>
+echo encryptData($data);

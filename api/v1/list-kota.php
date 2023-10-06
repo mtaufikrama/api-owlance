@@ -9,7 +9,7 @@ if ($id_provinsi != "") {
 } else {
     $data['code'] = 500;
     $data['msg'] = 'ID Provinsi tidak ada';
-    echo json_encode($data);
+    echo encryptData($data);
     die;
 }
 
@@ -25,4 +25,4 @@ if (is_array($json)) {
     $data['code'] = 500;
     $data['msg'] = "data tidak ditemukan";
 }
-echo json_encode($data);
+echo encryptData($data);

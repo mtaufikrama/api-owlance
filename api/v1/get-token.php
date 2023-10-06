@@ -11,5 +11,4 @@ if ($IDApi > 0) {
 	$Resdata['msg'] = 'Akses Ditolak';
 }
 
-echo json_encode($Resdata);
-?>
+echo encryptData($Resdata);

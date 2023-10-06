@@ -10,9 +10,8 @@ if ($cekSebelummasukusername > 0) {
 
     $datarest['code'] = 500;
     $datarest['msg'] = "Username Sudah Terdaftar";
-    echo json_encode($datarest);
+    echo encryptData($datarest);
     die();
-
 }
 
 $cekSebelummasukemail = baca_tabel("user", "count(email)", "  where email='$email'");
@@ -21,9 +20,8 @@ if ($cekSebelummasukemail > 0) {
 
     $datarest['code'] = 500;
     $datarest['msg'] = "Email Sudah Terdaftar";
-    echo json_encode($datarest);
+    echo encryptData($datarest);
     die();
-
 }
 
 $cekSebelummasukhp = baca_tabel("user", "count(no_hp)", "  where no_hp='$no_hp'");
@@ -32,7 +30,7 @@ if ($cekSebelummasukhp > 0) {
 
     $datarest['code'] = 500;
     $datarest['msg'] = "No Hp Sudah Terdaftar";
-    echo json_encode($datarest);
+    echo encryptData($datarest);
     die();
 }
 /****************************************************************************************/
@@ -62,7 +60,7 @@ if ($result) {
 }
 
 
-echo json_encode($data);
+echo encryptData($data);
 
 $emailUser = $email;
 

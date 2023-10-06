@@ -12,4 +12,4 @@ if ($kelamin) {
     $data['code'] = 500;
     $data['msg'] = 'Jenis Kelamin Gagal Ditemukan';
 }
-echo json_encode($data);
+echo encryptData($data);

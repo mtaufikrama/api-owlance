@@ -28,7 +28,7 @@ if ($password) {
 } else {
     $datax['code'] = 500;
     $datax['msg'] = 'Email tidak terdaftar';
-    echo json_encode($datax);
+    echo encryptData($datax);
     die;
 }
 
@@ -110,5 +110,4 @@ $mail->send();
 
 
 
-echo json_encode($datax);
-?>
+echo encryptData($datax);

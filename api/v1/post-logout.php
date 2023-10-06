@@ -12,4 +12,4 @@ if ($delete) {
     $dataRes['msg'] = 'Gagal Logout';
 }
 
-echo json_encode($dataRes);
+echo encryptData($dataRes);

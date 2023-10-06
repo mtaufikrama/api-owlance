@@ -13,9 +13,9 @@ if ($cekemail > 0) {
     $cek = baca_tabel('user', "count(*)", "where (email = '$username' or no_hp = $username or username = '$username') and pass = '$pass'");
     if ($cek > 0) {
 
-        $data['id'] = generateID(15, 'login', 'id');
         $data['id_user'] = baca_tabel('user', 'id_user', "where (email = '$username' or no_hp = $username or username = '$username') and pass = '$pass'");
-        $data['token'] = generateID(30, 'login', 'token');
+        $data['token'] = generateID(50, 'login', 'token');
+        $data['waktu'] = date("Y-m-d H:i:s");
 
         $update = insert_tabel('login', $data);
 

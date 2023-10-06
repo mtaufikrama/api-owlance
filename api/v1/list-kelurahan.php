@@ -6,7 +6,7 @@ include "cek-token.php";
 if ($id_kecamatan == '') {
 	$datax['code'] = 500;
 	$datax['msg'] = "ID Kecamatan tidak ada";
-	echo json_encode($datax);
+	echo encryptData($datax);
 	die();
 }
 
@@ -25,5 +25,4 @@ if (is_array($data)) {
 	$datax['code'] = 500;
 	$datax['msg'] = "Tidak ada data ditemukan";
 }
-echo json_encode($datax);
-?>
+echo encryptData($datax);

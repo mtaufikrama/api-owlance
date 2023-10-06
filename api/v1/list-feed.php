@@ -60,5 +60,4 @@ if (is_array($data)) {
 	$datax['code'] = 500;
 	$datax['msg'] = "Tidak ada data ditemukan";
 }
-echo json_encode($datax);
-?>
+echo encryptData($datax);
