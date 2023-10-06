@@ -4,4 +4,4 @@
 
 header('Content-Type: application/json');
 
-echo decryptData();
+echo json_encode(decryptData());
