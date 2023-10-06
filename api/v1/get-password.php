@@ -7,4 +7,4 @@ $password = randomString();
 $data['code'] = 200;
 $data['msg'] = $password;
 
-echo encryptData($data);
+echo json_encode($data);
