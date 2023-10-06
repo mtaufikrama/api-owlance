@@ -1,6 +1,6 @@
 <?php
 
-include '../encrypt.php';
+include "../src/export.php";
 
 header('Content-Type: application/json');
 
