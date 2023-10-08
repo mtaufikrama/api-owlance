@@ -4,7 +4,7 @@ include "../src/export.php";
 
 $headers = apache_request_headers();
 
-$authorized = $headers['authorized'];
+$authorized = $headers['token'];
 
 $dataRes['code'] = 300;
 $dataRes['msg'] = 'Akses ditolak';
