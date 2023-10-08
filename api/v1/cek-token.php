@@ -22,9 +22,6 @@ if ($id_user) {
 			foreach ($dataSend as $key => $val) {
 				$$key = $val;
 			}
-			foreach ($_FILES as $key => $val) {
-				$$key = $val;
-			}
 		} else {
 			echo encryptData($dataRes);
 			die();

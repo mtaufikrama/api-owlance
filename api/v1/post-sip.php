@@ -2,12 +2,13 @@
 
 include "cek-no-token.php";
 
-// if ($kode_dokter == '' || $foto == '' || $tgl_akhir == '' || $tgl_mulai == '') {
-//     $data['code'] = 500;
-//     $data['msg'] = 'Goblok';
-//     echo json_encode($data);
-//     die;
-// }
+
+header("Content-Type: application/x-www-form-urlencoded");
+
+foreach ($_FILES as $key => $val) {
+    $$key = $val;
+}
+
 echo json_encode($_FILES);
 echo json_encode(json_decode(file_get_contents("php://input"), true));
 $path = $foto['tmp_name'];
