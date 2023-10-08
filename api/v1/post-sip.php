@@ -1,6 +1,6 @@
 <?php
 
-include "cek-token.php";
+include "cek-no-token.php";
 
 // if ($kode_dokter == '' || $foto == '' || $tgl_akhir == '' || $tgl_mulai == '') {
 //     $data['code'] = 500;
