@@ -5,7 +5,6 @@ include 'cek-no-token.php';
 // username, password
 
 $pass = enkrip($password);
-echo $pass;
 
 $cekemail = baca_tabel('user', 'count(*)', "where email = '$username' or no_hp = '$username' or username = '$username'");
 
