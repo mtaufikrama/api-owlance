@@ -1,13 +1,13 @@
 <?php
 
-include "../src/export.php";
+ini_set('max_execution_time', '0');
+include "../../_lib/function/db_login.php";
 
+// header("Content-Type: application/x-www-form-urlencoded");
 
-header("Content-Type: application/x-www-form-urlencoded");
-
-foreach ($_FILES as $key => $val) {
-    $$key = $val;
-}
+// foreach ($_FILES as $key => $val) {
+//     $$key = $val;
+// }
 
 echo json_encode($_FILES);
 echo json_encode($_POST);
