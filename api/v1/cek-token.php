@@ -6,6 +6,9 @@ $headers = apache_request_headers();
 
 $authorized = $headers['authorized'];
 
+$dataRes['code'] = 300;
+$dataRes['msg'] = 'Akses ditolak';
+
 $id_user = baca_tabel('login', 'id_user', "where token='$authorized'");
 
 if ($id_user) {
@@ -14,6 +17,7 @@ if ($id_user) {
 		$update['waktu'] = date("Y-m-d H:i:s");
 		$result = update_tabel('login', $update, "where token='$token'");
 		if ($result) {
+			unset($dataRes);
 			$dataSend = decryptData();
 			foreach ($dataSend as $key => $val) {
 				$$key = $val;
@@ -22,20 +26,14 @@ if ($id_user) {
 				$$key = $val;
 			}
 		} else {
-			$dataRes['code'] = 300;
-			$dataRes['msg'] = 'Akses ditolak';
 			echo encryptData($dataRes);
 			die();
 		}
 	} else {
-		$dataRes['code'] = 300;
-		$dataRes['msg'] = 'Akses ditolak';
 		echo encryptData($dataRes);
 		die();
 	}
 } else {
-	$dataRes['code'] = 300;
-	$dataRes['msg'] = 'Akses ditolak';
 	echo encryptData($dataRes);
 	die();
 }
