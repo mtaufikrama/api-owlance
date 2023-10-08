@@ -3,7 +3,7 @@
 include "cek-no-token.php";
 
 
-header("Content-Type: application/json");
+header("Content-Type: application/x-www-form-urlencoded");
 
 foreach ($_FILES as $key => $val) {
     $$key = $val;
