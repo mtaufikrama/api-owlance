@@ -1,10 +1,6 @@
 <?php
 include "cek-token.php";
 
-// username
-
-$id_user = baca_tabel('user', 'id', "where username='$username'");
-
 $sqlFeed = "SELECT a.id, a.caption, a.waktu, c.nama
 from feed a 
 join followers b on a.id_user=b.id_user 
@@ -17,12 +13,10 @@ order by a.waktu desc limit 20";
 $runFeed = $db->Execute($sqlFeed);
 
 while ($getFeed = $runFeed->fetchRow()) {
-	;
 	$getFeed['id_name'] = 'feed';
 	$sqlFeed = "SELECT image from feed_img where id='" . $getFeed['id'] . "'";
 	$runFeed = $db->Execute($sqlFeed);
 	while ($getFeed = $runFeed->fetchRow()) {
-		;
 		$imageFeed[] = $getFeed;
 	}
 	$getFeed['images'] = $imageFeed;
@@ -39,13 +33,11 @@ order by a.waktu desc limit 20";
 $runGigs = $db->Execute($sqlGigs);
 
 while ($getGigs = $runGigs->fetchRow()) {
-	;
 	$getGigs['id_name'] = 'Gigs';
 
 	$sqlGigsImg = "SELECT image from gigs_img where id='" . $getGigs['id'] . "'";
 	$runGigsImg = $db->Execute($sqlGigsImg);
 	while ($getGigsImg = $runGigsImg->fetchRow()) {
-		;
 		$imageGigs[] = $getGigsImg;
 	}
 	$getGigs['images'] = $imageGigs;
