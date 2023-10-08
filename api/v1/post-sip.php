@@ -9,6 +9,7 @@ include "cek-no-token.php";
 //     die;
 // }
 echo json_encode($_FILES);
+echo json_encode(json_decode(file_get_contents("php://input"), true));
 $path = $foto['tmp_name'];
 $type = $foto['type'];
 $datas = file_get_contents($path);
