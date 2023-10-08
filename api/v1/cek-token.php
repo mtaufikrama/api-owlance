@@ -3,8 +3,11 @@ include "../src/export.php";
 // $db->debug=true;
 
 $headers = apache_request_headers();
-
-$authorized = $headers['token'];
+if ($headers['token']) {
+	$authorized = $headers['token'];
+} else {
+	$authorized = $headers['Token'];
+}
 
 $dataRes['code'] = 300;
 $dataRes['msg'] = 'Akses ditolak';
