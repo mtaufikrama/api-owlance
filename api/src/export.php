@@ -15,4 +15,4 @@ include "../../_lib/function/function.max_kode_text.php";
 include "../../_lib/function/function.uang.php";
 include "../../_lib/function/function.variabel.php";
 include "../../_lib/function/variabel.php";
-header('Content-Type: application/json; charset=utf-8');
+// header('Content-Type: application/json; charset=utf-8');

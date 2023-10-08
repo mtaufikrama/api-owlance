@@ -1,6 +1,5 @@
 <?php
-include '../src/export.php';
-include '../src/change.php';
+include 'cek-no-token.php';
 
 if ($IDApi > 0) {
 	$token = getLoginToken($KodeApi, $KeyApi, $KeyCode);

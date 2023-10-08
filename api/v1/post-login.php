@@ -1,18 +1,19 @@
 <?php
 
-include '../src/export.php';
+include 'cek-no-token.php';
 
 // username, password
 
 $pass = enkrip($password);
+echo $pass;
 
-$cekemail = baca_tabel('user', 'count(*)', "where email = '$username' or no_hp = $username or username = '$username'");
+$cekemail = baca_tabel('user', 'count(*)', "where email = '$username' or no_hp = '$username' or username = '$username'");
 
 if ($cekemail > 0) {
-    $cek = baca_tabel('user', "count(*)", "where (email = '$username' or no_hp = $username or username = '$username') and pass = '$pass'");
+    $cek = baca_tabel('user', "count(*)", "where (email = '$username' or no_hp = '$username' or username = '$username') and password = '$pass'");
     if ($cek > 0) {
 
-        $data['id_user'] = baca_tabel('user', 'id_user', "where (email = '$username' or no_hp = $username or username = '$username') and pass = '$pass'");
+        $data['id_user'] = baca_tabel('user', 'id', "where (email = '$username' or no_hp = '$username' or username = '$username') and pass = '$pass'");
         $data['token'] = generateID(50, 'login', 'token');
         $data['waktu'] = date("Y-m-d H:i:s");
 

@@ -1,6 +1,6 @@
 <?php
 
-include "../src/export.php";
+include 'cek-no-token.php';
 
 //email
 $cek = baca_tabel("user", "count(email)", "where email='$email'");
