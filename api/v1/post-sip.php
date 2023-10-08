@@ -1,6 +1,6 @@
 <?php
 
-include "cek-no-token.php";
+include "../src/export.php";
 
 
 header("Content-Type: application/x-www-form-urlencoded");
