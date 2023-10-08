@@ -20,8 +20,7 @@ if ($cekemail > 0) {
 
         if ($update) {
             $dataRes['code'] = 200;
-            $dataRes['msg'] = 'Login Berhasil';
-            $dataRes['token'] = $data['token'];
+            $dataRes['msg'] = $data['token'];
         } else {
             $dataRes['code'] = 500;
             $dataRes['msg'] = 'Login Gagal';
