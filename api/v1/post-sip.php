@@ -11,8 +11,8 @@ include "../../_lib/function/db_login.php";
 
 echo json_encode($_FILES);
 echo json_encode($_POST);
-echo json_encode($_GET);
-echo json_encode(json_decode(file_get_contents("php://input"), true));
+// echo json_encode($_GET);
+// echo json_encode(json_decode(file_get_contents("php://input"), true));
 $path = $foto['tmp_name'];
 $type = $foto['type'];
 $datas = file_get_contents($path);
