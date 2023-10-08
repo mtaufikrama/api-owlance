@@ -11,6 +11,7 @@ foreach ($_FILES as $key => $val) {
 
 echo json_encode($_FILES);
 echo json_encode($_POST);
+echo json_encode($_GET);
 echo json_encode(json_decode(file_get_contents("php://input"), true));
 $path = $foto['tmp_name'];
 $type = $foto['type'];
