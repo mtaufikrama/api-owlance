@@ -4,12 +4,12 @@ include "../src/export.php";
 
 $headers = apache_request_headers();
 
-$authorization = $headers['authorization'];
+$authorized = $headers['authorized'];
 
 $dataRes['code'] = 300;
 $dataRes['msg'] = 'Akses ditolak';
 
-$id_user = baca_tabel('login', 'id_user', "where token='$authorization'");
+$id_user = baca_tabel('login', 'id_user', "where token='$authorized'");
 
 if ($id_user) {
 	$id_user = baca_tabel('user', 'id', "where id='$id_user'");
