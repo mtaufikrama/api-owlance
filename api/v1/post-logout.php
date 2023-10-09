@@ -2,7 +2,7 @@
 
 include "cek-token.php";
 
-$delete = delete_tabel('login', "where token = '$token'");
+$delete = delete_tabel('login', "where token = '$authorized'");
 
 if ($delete) {
     $dataRes['code'] = 200;
