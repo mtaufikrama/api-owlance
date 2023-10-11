@@ -3,10 +3,10 @@ include "../src/export.php";
 // $db->debug=true;
 
 $headers = apache_request_headers();
-if ($headers['token']) {
-	$authorized = $headers['token'];
+if ($headers['Authorization']) {
+	$authorized = $headers['Authorization'];
 } else {
-	$authorized = $headers['Token'];
+	$authorized = $headers['authorization'];
 }
 
 $dataRes['code'] = 300;
