@@ -22,7 +22,7 @@ if ($pw_lama_real == $pw_lama) {
 		$result = delete_tabel('login', "where id_user='$id_user'");
 		$datax['code'] = 200;
 		$datax['msg'] = 'Password berhasil diubah';
-		$datax['res'] = $data;
+		$datax['pw'] = $data['password'];
 	} else {
 		$datax['code'] = 500;
 		$datax['msg'] = "Maaf, Password Gagal diubah";
