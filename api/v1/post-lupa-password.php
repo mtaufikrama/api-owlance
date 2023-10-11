@@ -50,26 +50,26 @@ if ($password) {
     // $message = $keterangan;
 
     $mail->isHTML(true);
-    $subject = 'RESET PASSWORD A-DOKTER';
+    $subject = 'RESET PASSWORD Owlance';
     $message = "Dear " . $nama;
     $message .= "<br>";
     $message .= "<br>";
     $message .= "Halo " . $nama;
     $message .= "<br>";
-    $message .= "Berikut kami kirimkan kata sandi yang baru untuk login ke aplikasi A-Dokter";
+    $message .= "Berikut kami kirimkan kata sandi yang baru untuk login ke aplikasi Owlance";
     $message .= "<br>";
     $message .= "<br>";
     $message .= "Username      			: " . $email;
     $message .= "<br>";
-    $message .= "Password             	: " . $pw_baru;
+    $message .= "Password             	: " . $pw;
     $message .= "<br>";
     $message .= "<br>";
     $message .= "Login Owlance : https://owlance.metir.my.id/#/login";
     $message .= "<br>";
 
-    $message .= "Adapun untuk Mitra a-Dokter yang ingin melakukan trial aplikasi, Mitra a-Dokter dapat login melalui link berikut : https://demo.a-dokter.id/form_login.php dengan menggunakan username dan password seperti diatas.";
+    $message .= "Adapun untuk Mitra Owlance yang ingin melakukan trial aplikasi, Mitra Owlance dapat login melalui link berikut : https://demo.Owlance.id/form_login.php dengan menggunakan username dan password seperti diatas.";
     $message .= "<br>";
-    $message .= "Jika bapak/ibu Mitra a-Dokter belum mendaftarkan diri ke Satu Sehat Kemenkes RI, bapak/ibu Mitra A-Dokter dapat mengakses melalu link berikut : https://satusehat.kemkes.go.id/platform/welcome";
+    $message .= "Jika bapak/ibu Mitra Owlance belum mendaftarkan diri ke Satu Sehat Kemenkes RI, bapak/ibu Mitra Owlance dapat mengakses melalu link berikut : https://satusehat.kemkes.go.id/platform/welcome";
     $message .= "<br>";
     $message .= "Kami berharap bapak/ibu langsung menganti password untuk menjaga kerahasiaan, apabila ada kesulitan dalam menggunakan aplikasi silahkan hubungi kami";
 
@@ -80,7 +80,7 @@ if ($password) {
 
     $message .= "Terimakasih";
     $message .= "<br>";
-    $message .= "Salam a-Dokter";
+    $message .= "Salam Owlance";
     /****************************************************************************************/
     $mail->Subject = $subject;
     $mail->Body = nl2br($message); //isi email
@@ -103,8 +103,6 @@ if ($password) {
 } else {
     $datax['code'] = 500;
     $datax['msg'] = 'Email tidak terdaftar';
-    echo encryptData($datax);
-    die;
 }
 
 echo encryptData($datax);
