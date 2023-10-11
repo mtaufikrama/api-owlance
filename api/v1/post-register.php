@@ -1,6 +1,6 @@
 <?php
 
-include "cek-token.php";
+include "cek-no-token.php";
 
 // username, nama, email, password, no_hp
 
