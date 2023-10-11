@@ -4,7 +4,7 @@ include "cek-token.php";
 
 // username, nama, email, password, no_hp
 
-if (!$username || !$password || !$nama || !$email || !$no_hp) {
+if (!$username || !$password || !$email || !$no_hp) {
     $datarest['code'] = 500;
     $datarest['msg'] = "Username / Email / Password / No HP Harus Diisi";
     echo encryptData($datarest);
