@@ -12,7 +12,7 @@ if ($cekemail > 0) {
     $cek = baca_tabel('user', "count(*)", "where (email = '$username' or no_hp = '$username' or username = '$username') and password = '$pass'");
     if ($cek > 0) {
 
-        $data['id_user'] = baca_tabel('user', 'id', "where (email = '$username' or no_hp = '$username' or username = '$username') and pass = '$pass'");
+        $data['id_user'] = baca_tabel('user', 'id', "where (email = '$username' or no_hp = '$username' or username = '$username') and password = '$pass'");
         $data['token'] = generateID(50, 'login', 'token');
         $data['waktu'] = date("Y-m-d H:i:s");
 
