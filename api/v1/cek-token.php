@@ -18,7 +18,7 @@ if ($id_user) {
 	$id_user = baca_tabel('user', 'id', "where id='$id_user'");
 	if ($id_user) {
 		$update['waktu'] = date("Y-m-d H:i:s");
-		$result = update_tabel('login', $update, "where token='$token'");
+		$result = update_tabel('login', $update, "where token='$authorized'");
 		if ($result) {
 			unset($dataRes);
 			$dataSend = decryptData();
