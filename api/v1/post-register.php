@@ -129,16 +129,16 @@ $result = $mail->send();
 if ($result) {
     $result = insert_tabel("user", $dataSend);
     if ($result) {
-        $data['code'] = 200;
-        $data['msg'] = "Berhasil Daftar";
+        $datarest['code'] = 200;
+        $datarest['msg'] = "Berhasil Daftar";
     } else {
-        $data['code'] = 200;
-        $data['msg'] = "Maaf, Pendaftaran Gagal diproses";
+        $datarest['code'] = 200;
+        $datarest['msg'] = "Maaf, Pendaftaran Gagal diproses";
     }
 } else {
-    $data['code'] = 500;
-    $data['msg'] = "Email Tidak Terkirim";
+    $datarest['code'] = 500;
+    $datarest['msg'] = "Email Tidak Terkirim";
 }
 
-
+echo encryptData($datarest);
 /****************************************************************************************/
