@@ -4,13 +4,15 @@ include 'cek-no-token.php';
 
 //email
 
-$password = baca_tabel('user', 'password', "where email='$email'");
+$email_user = $email;
+
+$password = baca_tabel('user', 'password', "where email='$email_user'");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if ($password) {
-    $nama = baca_tabel('user', 'nama', "where email='$email' and password='$password'");
+    $nama = baca_tabel('user', 'nama', "where email='$email_user' and password='$password'");
     $pw = randomString();
     $pw_baru = enkrip($pw);
 
@@ -59,7 +61,7 @@ if ($password) {
     $message .= "Berikut kami kirimkan kata sandi yang baru untuk login ke aplikasi Owlance";
     $message .= "<br>";
     $message .= "<br>";
-    $message .= "Username      			: " . $email;
+    $message .= "Username      			: " . $email_user;
     $message .= "<br>";
     $message .= "Password             	: " . $pw;
     $message .= "<br>";
@@ -88,7 +90,7 @@ if ($password) {
     $result = $mail->send();
 
     if ($result) {
-        $result = update_tabel('user', $data, "where email='$email' and password='$password'");
+        $result = update_tabel('user', $data, "where email='$email_user' and password='$password'");
         if ($result) {
             $datax['code'] = 200;
             $datax['msg'] = 'Kami akan mengirimkan password baru ke alamat email anda. Silahkan periksa kotak masuk atau di folder spam email';
