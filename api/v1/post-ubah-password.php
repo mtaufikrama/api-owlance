@@ -17,7 +17,7 @@ $pw_lama_real = baca_tabel('user', 'password', "where id='$id_user'");
 
 if ($pw_lama_real == $pw_lama) {
 	$data['password'] = $md_pw_baru;
-	$result = update_tabel('user', $data, "where username='$email' and password='$pw_lama'");
+	$result = update_tabel('user', $data, "where email='$email' and password='$pw_lama'");
 	if ($result) {
 		$result = delete_tabel('login', "where id_user='$id_user'");
 		$datax['code'] = 200;
