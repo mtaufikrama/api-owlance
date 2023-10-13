@@ -39,8 +39,10 @@ if ($cekemail > 0) {
             if ($update) {
                 $dataRes['code'] = 200;
                 $dataRes['dulu'] = date_default_timezone_get();
+                $dataRes['dulu_waktu'] = date('Y-m-d H-i-s');
                 date_default_timezone_set('Asia/Jakarta');
                 $dataRes['skrng'] = date_default_timezone_get();
+                $dataRes['skrng_waktu'] = date('Y-m-d H-i-s');
                 $dataRes['msg'] = 'Berhasil Login';
                 $dataRes['token'] = $token;
             } else {
