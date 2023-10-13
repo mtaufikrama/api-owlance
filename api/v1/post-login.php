@@ -24,6 +24,8 @@ if ($cekemail > 0) {
                 $dataRes['code'] = 200;
                 $dataRes['msg'] = 'Berhasil Login';
                 $dataRes['token'] = $data['token'];
+                $dataRes['username'] = $data['token'];
+                $dataRes['roles'] = baca_tabel();
             } else {
                 $dataRes['code'] = 500;
                 $dataRes['msg'] = 'Login Gagal';

@@ -1,5 +1,5 @@
 <?php
-require_once("../vendor/autoload.php");
+// require_once("../vendor/autoload.php");
 // use Ahc\Jwt\JWT;
 
 if (!function_exists('apache_request_headers')) {
