@@ -38,6 +38,9 @@ if ($cekemail > 0) {
             $update = update_tabel('login', $data, "where id_user = '$id_user' and device_data = '$json_device'");
             if ($update) {
                 $dataRes['code'] = 200;
+                $dataRes['dulu'] = date_default_timezone_get();
+                date_default_timezone_set('Asia/Jakarta');
+                $dataRes['skrng'] = date_default_timezone_get();
                 $dataRes['msg'] = 'Berhasil Login';
                 $dataRes['token'] = $token;
             } else {
