@@ -1,7 +1,7 @@
 <?php
 include "cek-token.php";
 
-$Sql = "SELECT id_dc_propinsi as kode, nama_propinsi as nama from provinsi;";
+$Sql = "SELECT id_provinsi as kode, nama_provinsi as nama from provinsi";
 
 $Run = $db->Execute($Sql);
 

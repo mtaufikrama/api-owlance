@@ -2,14 +2,14 @@
 include "cek-token.php";
 
 //id_kota
-if ($id_kota == '') {
+if (!$id_kota) {
 	$datax['code'] = 500;
 	$datax['msg'] = "ID Kota tidak ada";
 	echo json_encode($datax);
 	die();
 }
 
-$SqlGetSpesialisasi = "SELECT id_dc_kecamatan as kode, nama_kecamatan as nama from kecamatan where id_dc_kota=$id_kota;";
+$SqlGetSpesialisasi = "SELECT id_kecamatan as kode, nama_kecamatan as nama from kecamatan where id_kota='$id_kota'";
 
 $RunGetSpesialisasi = $db->Execute($SqlGetSpesialisasi);
 
