@@ -1,6 +1,6 @@
 <?php
 require_once("../vendor/autoload.php");
-use Ahc\Jwt\JWT;
+// use Ahc\Jwt\JWT;
 
 if (!function_exists('apache_request_headers')) {
 	///
@@ -37,79 +37,79 @@ if (!function_exists('apache_request_headers')) {
 // 	die;
 // }
 
-function getEncData($arr)
-{
-	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
-	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-		$url = "https://";
-	else
-		$url = "http://";
+// function getEncData($arr)
+// {
+// 	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
+// 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+// 		$url = "https://";
+// 	else
+// 		$url = "http://";
 
-	$url .= $_SERVER['HTTP_HOST'];
+// 	$url .= $_SERVER['HTTP_HOST'];
 
-	$token = $jwt->encode($arr);
+// 	$token = $jwt->encode($arr);
 
-	return $token;
-}
-function getLoginToken($uid, $uname, $password)
-{
-	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
-	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-		$url = "https://";
-	else
-		$url = "http://";
+// 	return $token;
+// }
+// function getLoginToken($uid, $uname, $password)
+// {
+// 	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
+// 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+// 		$url = "https://";
+// 	else
+// 		$url = "http://";
 
-	$url .= $_SERVER['HTTP_HOST'];
+// 	$url .= $_SERVER['HTTP_HOST'];
 
-	$token = $jwt->encode([
-		'uid' => $uid,
-		'uname' => $uname,
-		'password' => $password,
-		'iss' => $url
-	]);
+// 	$token = $jwt->encode([
+// 		'uid' => $uid,
+// 		'uname' => $uname,
+// 		'password' => $password,
+// 		'iss' => $url
+// 	]);
 
-	return $token;
-}
-function extrakToken($token)
-{
-	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
-	try {
-		$payload = $jwt->decode($token);
-	} catch (Exception $e) {
-		$dataRes['code'] = 500;
-		$dataRes['msg'] = $e->getMessage();
-		;
-		echo json_encode($dataRes);
-		die;
-		return 0;
-	}
-	return $payload;
-}
-function checkValid($token)
-{
-	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
-	$verif = 1;
-	try {
-		$payload = $jwt->decode($token);
-		if ($payload['uname'] != "4dm1n") {
-			$verif = 0;
-		}
-		if ($payload['password'] != "4v3r1n2020!") {
-			$verif = 0;
-		}
+// 	return $token;
+// }
+// function extrakToken($token)
+// {
+// 	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
+// 	try {
+// 		$payload = $jwt->decode($token);
+// 	} catch (Exception $e) {
+// 		$dataRes['code'] = 500;
+// 		$dataRes['msg'] = $e->getMessage();
+// 		;
+// 		echo json_encode($dataRes);
+// 		die;
+// 		return 0;
+// 	}
+// 	return $payload;
+// }
+// function checkValid($token)
+// {
+// 	$jwt = new JWT('/\\/3RI|\/2020!', 'HS256', 3600, 10);
+// 	$verif = 1;
+// 	try {
+// 		$payload = $jwt->decode($token);
+// 		if ($payload['uname'] != "4dm1n") {
+// 			$verif = 0;
+// 		}
+// 		if ($payload['password'] != "4v3r1n2020!") {
+// 			$verif = 0;
+// 		}
 
-		if ($verif = 1) {
-			//echo "Message: Verification successful";
-			return 1;
-		} else {
-			//echo "Message: Verification unsuccessful";
-			return 0;
-		}
-	} catch (Exception $e) {
-		echo 'Message: ' . $e->getMessage();
-		return 0;
-	}
-}
+// 		if ($verif = 1) {
+// 			//echo "Message: Verification successful";
+// 			return 1;
+// 		} else {
+// 			//echo "Message: Verification unsuccessful";
+// 			return 0;
+// 		}
+// 	} catch (Exception $e) {
+// 		echo 'Message: ' . $e->getMessage();
+// 		return 0;
+// 	}
+// }
 
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
 	$base_url = "https://";
@@ -118,4 +118,3 @@ else
 
 $base_url .= $_SERVER['HTTP_HOST'];
 $base_url .= "/";
-?>
