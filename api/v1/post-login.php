@@ -22,6 +22,9 @@ if ($cekemail > 0) {
             $insert = insert_tabel('login', $data);
             if ($insert) {
                 $dataRes['code'] = 200;
+                $dataRes['dulu'] = date_default_timezone_get();
+                date_default_timezone_set('Asia/Jakarta');
+                $dataRes['skrng'] = date_default_timezone_get();
                 $dataRes['msg'] = 'Berhasil Login';
                 $dataRes['token'] = $data['token'];
                 $dataRes['username'] = $data['token'];
