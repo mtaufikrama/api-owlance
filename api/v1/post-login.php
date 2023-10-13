@@ -38,6 +38,8 @@ if ($cekemail > 0) {
                 $dataRes['code'] = 200;
                 $dataRes['msg'] = 'Berhasil Login';
                 $dataRes['token'] = $token;
+                $dataRes['username'] = baca_tabel('user', 'username', "where id='$id_user'");
+                $dataRes['roles'] = baca_tabel('roles', 'nama_roles', "where id='$id_roles'");
             } else {
                 $dataRes['code'] = 500;
                 $dataRes['msg'] = 'Login Gagal';
