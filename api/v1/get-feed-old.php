@@ -1,5 +1,5 @@
 <?php
-include "cek-no-dan-token.php";
+include "cek-no-token.php";
 
 $sqlFeed = "SELECT a.id, a.caption, a.waktu, c.nama
 from feed a 

@@ -1,5 +1,5 @@
 <?php
-include "cek-no-dan-token.php";
+include "cek-no-token.php";
 
 // nama, id
 
