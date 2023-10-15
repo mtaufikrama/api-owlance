@@ -2,7 +2,7 @@
 
 include "cek-no-token.php";
 
-// username, nama, email, password, no_hp
+// username, nama, email, password, no_hp, foto
 
 if (!$username || !$password || !$email || !$no_hp) {
     $datarest['code'] = 500;
