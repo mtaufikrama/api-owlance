@@ -4,18 +4,19 @@ include "cek-token.php";
 // caption, array(images)
 
 $dataFeed['id'] = generateID(15, 'feed', 'id');
-$dataFeed['caption'] = $caption;
 $dataFeed['id_user'] = $id_user;
+$dataFeed['title'] = $title;
+$dataFeed['caption'] = $caption;
 $dataFeed['waktu'] = date("Y-m-d H:i:s");
 
-$result = insert_tabel('feed', $dataFeed);
+$result = insert_tabel('gigs', $dataFeed);
 
 if ($result) {
 	foreach ($images as $image) {
-		$feedImg['id'] = generateID(15, 'feed_img', 'id');
-		$feedImg['id_feed'] = $dataFeed['id'];
+		$feedImg['id'] = generateID(15, 'gigs_img', 'id');
+		$feedImg['id_gigs'] = $dataFeed['id'];
 		$feedImg['image'] = $image;
-		$result = insert_tabel('feed_img', $feedImg);
+		$result = insert_tabel('gigs_img', $feedImg);
 		unset($feedImg);
 	}
 	if ($result) {

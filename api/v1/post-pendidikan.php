@@ -1,30 +1,27 @@
 <?php
 include "cek-token.php";
 
-// caption, array(images)
+// title, caption, tgl_awal, tgl_akhir
 
-$dataFeed['id'] = generateID(15, 'feed', 'id');
-$dataFeed['caption'] = $caption;
-$dataFeed['id_user'] = $id_user;
-$dataFeed['waktu'] = date("Y-m-d H:i:s");
+if (!$title) {
+	$datax['code'] = 500;
+	$datax['msg'] = "Pendidikan tidak ada";
+	echo encryptData($datax);
+	die();
+}
 
-$result = insert_tabel('feed', $dataFeed);
+$dataEdu['id'] = generateID(15, 'education', 'id');
+$dataEdu['id_user'] = $id_user;
+$dataEdu['title'] = $title;
+$dataEdu['caption'] = $caption;
+$dataEdu['tgl_awal'] = $tgl_awal;
+$dataEdu['tgl_akhir'] = $tgl_akhir;
+
+$result = insert_tabel('education', $dataEdu);
 
 if ($result) {
-	foreach ($images as $image) {
-		$feedImg['id'] = generateID(15, 'feed_img', 'id');
-		$feedImg['id_feed'] = $dataFeed['id'];
-		$feedImg['image'] = $image;
-		$result = insert_tabel('feed_img', $feedImg);
-		unset($feedImg);
-	}
-	if ($result) {
-		$datax['code'] = 200;
-		$datax['msg'] = 'Berhasil Mengupload Feed';
-	} else {
-		$datax['code'] = 500;
-		$datax['msg'] = 'Gagal Mengupload Gambar';
-	}
+	$datax['code'] = 200;
+	$datax['msg'] = 'Berhasil Mengupload Feed';
 } else {
 	$datax['code'] = 500;
 	$datax['msg'] = "Gagal Mengupload Feed";
