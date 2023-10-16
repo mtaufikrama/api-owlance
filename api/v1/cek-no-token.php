@@ -9,7 +9,9 @@ if ($headers['Authorization']) {
 	$authorized = $headers['authorization'];
 }
 
-$id_user = baca_tabel('login', 'id_user', "where token='$authorized'");
+if ($authorized) {
+	$id_user = baca_tabel('login', 'id_user', "where token='$authorized'");
+}
 
 if ($id_user) {
 	$id_user = baca_tabel('user', 'id', "where id='$id_user'");
