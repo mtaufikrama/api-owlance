@@ -2,7 +2,7 @@
 
 include 'cek-no-token.php';
 
-$db->debug = true;
+// $db->debug = true;
 
 // username, password, device_data
 
