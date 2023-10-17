@@ -15,7 +15,7 @@ if ($cekemail > 0) {
         $id_user = baca_tabel('user', 'id', "where (email = '$username' or no_hp = '$username' or username = '$username') and password = '$pass'");
         $id_roles = baca_tabel('user', 'id_roles', "where id='$id_user'");
         $token = baca_tabel('login', 'token', "where id_user = '$id_user' and device_data = '$json_device'");
-        if (!$token) {
+        if (!$token || $token == '') {
             $data['id_user'] = $id_user;
             $data['token'] = generateID(50, 'login', 'token');
             $data['device_data'] = $json_device;
