@@ -21,7 +21,7 @@ date_default_timezone_set('Asia/Jakarta');
 header("Content-Type: text/plain; charset=utf-8");
 
 // // Izinkan akses dari domain Anda
-header("Access-Control-Allow-Origin: https://owlance.metir.my.id");
+header("Access-Control-Allow-Origin: https://owla.metir.my.id");
 
 // // Izinkan metode HTTP yang diperlukan
 // header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
