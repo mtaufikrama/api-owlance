@@ -47,7 +47,7 @@ if ($cekemail > 0) {
         }
     } else {
         $dataRes['code'] = 500;
-        $dataRes['msg'] = 'Login Gagal';
+        $dataRes['msg'] = 'Password Salah';
     }
 } else {
     $dataRes['code'] = 500;
