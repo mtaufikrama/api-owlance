@@ -14,7 +14,7 @@ use PHPMailer\PHPMailer\Exception;
 if ($password) {
     $nama = baca_tabel('user', 'nama', "where email='$email_user' and password='$password'");
     $pw = randomString();
-    $pw_baru = enkrip($pw);
+    $pw_baru = md5($pw);
 
     $data['password'] = $pw_baru;
 

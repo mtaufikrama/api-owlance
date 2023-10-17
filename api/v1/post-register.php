@@ -48,7 +48,7 @@ if ($cekSebelummasukhp > 0) {
 
 // unset($dataSend['foto']);
 $dataSend['id'] = generateID(15, 'user', 'id');
-$dataSend['password'] = enkrip($password);
+$dataSend['password'] = md5($password);
 // $dataSend['foto'] = "data:" . $type . ";base64," . base64_encode($file);
 
 use PHPMailer\PHPMailer\PHPMailer;

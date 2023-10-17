@@ -8,7 +8,7 @@ $db->debug = true;
 
 unset($data);
 
-$pass = enkrip($password);
+$pass = md5($password);
 
 if (is_numeric($username)) {
     $kondisi = "no_hp = '$username'";
