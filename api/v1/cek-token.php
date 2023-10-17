@@ -2,11 +2,11 @@
 include "../src/export.php";
 // $db->debug=true;
 
-$headers = apache_request_headers();
-if ($headers['Authorization']) {
-	$authorized = $headers['Authorization'];
+$headers = $_GET;
+if ($headers['api_key']) {
+	$authorized = $headers['api_key'];
 } else {
-	$authorized = $headers['authorization'];
+	$authorized = $headers['api_key'];
 }
 
 $dataRes['code'] = 300;
