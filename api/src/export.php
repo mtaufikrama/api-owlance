@@ -18,3 +18,15 @@ include "../../_lib/function/function.like_text.php";
 // include "../../_lib/function/variabel.php";
 // header('Content-Type: application/json; charset=utf-8');
 date_default_timezone_set('Asia/Jakarta');
+
+// Izinkan akses dari domain Anda
+header("Access-Control-Allow-Origin: https://owlance.metir.my.id");
+
+// Izinkan metode HTTP yang diperlukan
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+
+// Izinkan header yang diperlukan dalam permintaan
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// Izinkan pengiriman kredensial (jika diperlukan)
+header("Access-Control-Allow-Credentials: true");
