@@ -1,6 +1,7 @@
 <?php
 function randomString($length = 10)
 {
+    $length = rand(1, $length);
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $randomString = '';
     $charLength = strlen($characters);

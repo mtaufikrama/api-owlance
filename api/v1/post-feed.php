@@ -1,7 +1,16 @@
 <?php
 include "cek-token.php";
 
-// caption, array(images)
+// caption, array(images), tabs, kode
+
+$cekTabs = baca_tabel('tabs', 'count(*)', "where nama = '$nama'");
+
+if (!$tabs || $tabs == '' || $cekTabs == 0) {
+	$datax['code'] = 404;
+	$datax['msg'] = "Tab Tidak Ada";
+	echo encryptData($datax);
+	die();
+}
 
 $dataFeed['id'] = generateID(15, 'feed', 'id');
 $dataFeed['caption'] = $caption;
