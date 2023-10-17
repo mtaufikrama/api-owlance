@@ -10,13 +10,19 @@ unset($data);
 
 $pass = enkrip($password);
 
-$cekemail = baca_tabel('user', 'count(*)', "where email = '$username' or no_hp = '$username' or username = '$username'");
+if (is_numeric($username)) {
+    $kondisi = "no_hp = '$username'";
+    $cekemail = baca_tabel('user', 'count(*)', 'where ' . $kondisi);
+} else {
+    $kondisi = "email = '$username' or username = '$username'";
+    $cekemail = baca_tabel('user', 'count(*)', 'where ' . $kondisi);
+}
 
 if ($cekemail > 0) {
-    $cek = baca_tabel('user', "count(*)", "where (email = '$username' or no_hp = '$username' or username = '$username') and password = '$pass'");
+    $cek = baca_tabel('user', "count(*)", "where ($kondisi) and password = '$pass'");
     if ($cek > 0) {
         $json_device = json_encode($device_data);
-        $id_user = baca_tabel('user', 'id', "where (email = '$username' or no_hp = '$username' or username = '$username') and password = '$pass'");
+        $id_user = baca_tabel('user', 'id', "where ($kondisi) and password = '$pass'");
         $id_roles = baca_tabel('user', 'id_roles', "where id='$id_user'");
         $token = baca_tabel('login', 'token', "where id_user = '$id_user' and device_data = '$json_device'");
         if (!$token || $token == '') {
