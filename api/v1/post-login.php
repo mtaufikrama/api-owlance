@@ -2,7 +2,11 @@
 
 include 'cek-no-token.php';
 
+$db->debug = true;
+
 // username, password, device_data
+
+unset($data);
 
 $pass = enkrip($password);
 
