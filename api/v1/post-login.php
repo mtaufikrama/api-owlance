@@ -2,13 +2,13 @@
 
 include 'cek-no-token.php';
 
-// $db->debug = true;
+$db->debug = true;
 
 // username, password, device_data
 
 unset($data);
 
-$pass = md5($password);
+$pass = base64_encode(enkrip($password));
 
 if (is_numeric($username)) {
     $kondisi = "no_hp = '$username'";

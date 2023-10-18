@@ -3,8 +3,8 @@ include "cek-token.php";
 
 // pw_lama, pw_baru
 
-$md_pw_baru = md5($pw_baru);
-$pw_lama = md5($pw_lama);
+$md_pw_baru = base64_encode(enkrip($pw_baru));
+$pw_lama = base64_encode(enkrip($pw_lama));
 
 if ($md_pw_baru == $pw_lama) {
 	$datax['code'] = 500;
@@ -31,5 +31,6 @@ if ($pw_lama_real == $pw_lama) {
 	$datax['code'] = 500;
 	$datax['msg'] = 'Password Lama Tidak Sesuai';
 }
+
 
 echo encryptData($datax);
