@@ -7,7 +7,7 @@ $cekTabs = baca_tabel('tabs', 'count(*)', "where nama = '$nama'");
 
 if (!$tabs || $tabs == '' || $cekTabs == 0) {
 	$datax['code'] = 404;
-	$datax['msg'] = "Tab Tidak Ada";
+	$datax['msg'] = "Tab Tidak Terdaftar";
 	echo encryptData($datax);
 	die();
 }
