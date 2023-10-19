@@ -47,7 +47,7 @@ if ($cekSebelummasukhp > 0) {
 // $file = file_get_contents($path);
 
 // unset($dataSend['foto']);
-$dataSend['id'] = generateID(15, 'user', 'id');
+$dataSend['id'] = generateID(50, 'user', 'id');
 $dataSend['password'] = base64_encode(enkrip($password));
 // $dataSend['foto'] = "data:" . $type . ";base64," . base64_encode($file);
 

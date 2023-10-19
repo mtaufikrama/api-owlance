@@ -22,7 +22,7 @@ switch ($nama) {
 		break;
 }
 
-$dataComment['id'] = generateID(15, 'comment', 'id');
+$dataComment['id'] = generateID(100, 'comment', 'id');
 $dataComment['id_user'] = $id_user;
 $dataComment['title'] = $title;
 $dataComment['caption'] = $caption;
