@@ -2,7 +2,7 @@
 
 include "cek-token.php";
 
-$Sql = "SELECT device_data, waktu from login where id_user='$id_user'";
+$Sql = "SELECT device_data, waktu from login where id_user='$id_user' order by waktu desc";
 
 $Run = $db->Execute($Sql);
 while ($Tpl = $Run->fetchRow()) {

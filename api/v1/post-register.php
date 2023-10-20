@@ -45,24 +45,28 @@ if ($cekSebelummasukhp > 0) {
     echo encryptData($datarest);
     die();
 }
+
 /****************************************************************************************/
 
 $dataSend['id'] = generateID(50, 'user', 'id');
 $dataSend['password'] = base64_encode(enkrip($password));
 $dataSend['available'] = 0;
 
-$dataOtp['id_user'] = $dataSend['id'];
+$dataOtp['email'] = $email;
 $dataOtp['otp'] = $otp;
+$dataOtp['waktu'] = date("Y-m-d H:i:s");
 
 $result = insert_tabel("user", $dataSend);
 if ($result) $result = insert_tabel('otp', $dataOtp);
-if ($result) {
-    $datarest['code'] = 200;
-    $datarest['msg'] = "Berhasil Daftar";
-} else {
-    $datarest['code'] = 200;
+if (!$result) {
+    $datarest['code'] = 500;
     $datarest['msg'] = "Maaf, Pendaftaran Gagal diproses";
+    echo encryptData($datarest);
+    die();
 }
+
+$datarest['code'] = 200;
+$datarest['msg'] = $email;
 
 echo encryptData($datarest);
 
@@ -107,27 +111,25 @@ foreach ($recipients as $email => $name) {
 // $message = $keterangan;
 
 $mail->isHTML(true);
-$subject = 'PASSWORD AKTIVASI A-DOKTER';
+$subject = 'VERIFIKASI OTP OWLANCE';
 $message = "Dear " . $nama;
 $message .= "<br>";
 $message .= "<br>";
 $message .= "Halo " . $nama;
 $message .= "<br>";
-// $message .= "Selamat kami dari team A-Dokter , menginformasikan bahwa Sistem A-Dokter telah dapat digunakan dan bapak/ibu yang telah terdaftar dapat melengkapi data-data secara langsung dengan menggunakan email yang sudah terdaftar dan password yang kami kirimkan melalui email";
-$message .= "Selamat anda telah mendaftar sebagai Mitra a-Dokter , diinformasikan kepada bapak/ibu Mitra a-Dokter yang telah terdaftar diharapkan untuk dapat melengkapi data-data secara langsung dengan menggunakan email yang sudah terdaftar dan password yang kami kirimkan melalui email";
+// $message .= "Selamat kami dari team OWLANCE , menginformasikan bahwa Sistem OWLANCE telah dapat digunakan dan bapak/ibu yang telah terdaftar dapat melengkapi data-data secara langsung dengan menggunakan email yang sudah terdaftar dan password yang kami kirimkan melalui email";
+$message .= "Selamat anda telah mendaftar sebagai Mitra OWLANCE , diinformasikan kepada bapak/ibu Mitra OWLANCE yang telah terdaftar diharapkan untuk dapat melengkapi data-data secara langsung dengan menggunakan email yang sudah terdaftar dan password yang kami kirimkan melalui email";
 $message .= "<br>";
 // $message .= "<br>";
-// $message .= "Login a-Dokter : https://a-dokter.id/form_login.php";
+// $message .= "Login OWLANCE : https://OWLANCE.id/form_login.php";
 $message .= "<br>";
-$message .= "Username      			: " . $emailUser;
-$message .= "<br>";
-$message .= "Password             	: " . $password;
+$message .= "OTP      			: " . $otp;
 $message .= "<br>";
 $message .= "<br>";
 
-$message .= "Adapun untuk Mitra a-Dokter yang ingin melakukan trial aplikasi, Mitra a-Dokter dapat login melalui link berikut : https://demo.a-dokter.id/form_login.php dengan menggunakan username dan password seperti diatas.";
+$message .= "Adapun untuk Mitra OWLANCE yang ingin melakukan trial aplikasi, Mitra OWLANCE dapat login melalui link berikut : https://demo.OWLANCE.id/form_login.php dengan menggunakan username dan password seperti diatas.";
 $message .= "<br>";
-$message .= "Jika bapak/ibu Mitra a-Dokter belum mendaftarkan diri ke Satu Sehat Kemenkes RI, bapak/ibu Mitra A-Dokter dapat mengakses melalu link berikut : https://satusehat.kemkes.go.id/platform/welcome";
+$message .= "Jika bapak/ibu Mitra OWLANCE belum mendaftarkan diri ke Satu Sehat Kemenkes RI, bapak/ibu Mitra OWLANCE dapat mengakses melalu link berikut : https://satusehat.kemkes.go.id/platform/welcome";
 $message .= "<br>";
 $message .= "Kami berharap bapak/ibu langsung menganti password untuk menjaga kerahasiaan, apabila ada kesulitan dalam menggunakan aplikasi silahkan hubungi kami";
 
@@ -138,7 +140,7 @@ $message .= "<br>";
 
 $message .= "Terimakasih";
 $message .= "<br>";
-$message .= "Salam a-Dokter";
+$message .= "Salam OWLANCE";
 /****************************************************************************************/
 $mail->Subject = $subject;
 $mail->Body = nl2br($message); //isi email

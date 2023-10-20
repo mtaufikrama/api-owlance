@@ -8,103 +8,103 @@ $email_user = $email;
 
 $password = baca_tabel('user', 'password', "where email='$email_user'");
 
+if (!$password || $password == "") {
+    $datax['code'] = 500;
+    $datax['msg'] = 'Email tidak terdaftar';
+    echo encryptData($datax);
+    die();
+}
+
+$nama = baca_tabel('user', 'nama', "where email='$email_user' and password='$password'");
+$pw = randomString();
+$pw_baru = base64_encode(enkrip($pw));
+
+$data['password'] = $pw_baru;
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if ($password) {
-    $nama = baca_tabel('user', 'nama', "where email='$email_user' and password='$password'");
-    $pw = randomString();
-    $pw_baru = base64_encode(enkrip($pw));
+require_once "../../library/PHPMailer.php";
+require_once "../../library/Exception.php";
+require_once "../../library/OAuth.php";
+require_once "../../library/POP3.php";
+require_once "../../library/SMTP.php";
 
-    $data['password'] = $pw_baru;
+$mail = new PHPMailer();
+$mail->isSMTP();
+$mail->Host = "mail.metir.my.id"; //host mail server (sesuaikan dengan mail hosting Anda)
+$mail->SMTPAuth = true;
 
-    require_once "../../library/PHPMailer.php";
-    require_once "../../library/Exception.php";
-    require_once "../../library/OAuth.php";
-    require_once "../../library/POP3.php";
-    require_once "../../library/SMTP.php";
+$mail->Username = "mtaufikrama@metir.my.id"; //nama-email smtp
+$mail->Password = "MeTiR102!"; //password email smtp
 
-    // $mail->SMTPDebug = 3;
-    $mail = new PHPMailer();
-    $mail->isSMTP();
-    $mail->Host = "mail.metir.my.id"; //host mail server (sesuaikan dengan mail hosting Anda)
-    $mail->SMTPAuth = true;
+$mail->SMTPSecure = "ssl";
+$mail->Port = 465;
+$mail->From = "mtaufikrama@metir.my.id"; //email pengirim
+$mail->FromName = "MeTiR"; //nama pengirim
+$mail->addAddress($email, "");
 
-    $mail->Username = "mtaufikrama@metir.my.id"; //nama-email smtp
-    $mail->Password = "MeTiR102!"; //password email smtp
+$recipients = array(
+    'mtaufikrama@metir.my.id' => 'CC 1',
+    // ..
+); /**/
+foreach ($recipients as $email => $name) {
+    $mail->AddCC($email, $name);
+}
 
-    $mail->SMTPSecure = "ssl";
-    $mail->Port = 465;
-    $mail->From = "mtaufikrama@metir.my.id"; //email pengirim
-    $mail->FromName = "MeTiR"; //nama pengirim
-    $mail->addAddress($email, "");
+// $mail->isHTML(true);
+// $subject = 'RESET PASSWORD OWLANCE';
+// $message = $keterangan;
 
-    $recipients = array(
-        'mtaufikrama@metir.my.id' => 'CC 1',
-        // ..
-    ); /**/
-    foreach ($recipients as $email => $name) {
-        $mail->AddCC($email, $name);
-    }
+$mail->isHTML(true);
+$subject = 'RESET PASSWORD Owlance';
+$message = "Dear " . $nama;
+$message .= "<br>";
+$message .= "<br>";
+$message .= "Halo " . $nama;
+$message .= "<br>";
+$message .= "Berikut kami kirimkan kata sandi yang baru untuk login ke aplikasi Owlance";
+$message .= "<br>";
+$message .= "<br>";
+$message .= "Username      			: " . $email_user;
+$message .= "<br>";
+$message .= "Password             	: " . $pw;
+$message .= "<br>";
+$message .= "<br>";
+$message .= "Login Owlance : https://owlance.metir.my.id/ubahpass?otp=";
+$message .= "<br>";
 
-    // $mail->isHTML(true);
-    // $subject = 'RESET PASSWORD OWLANCE';
-    // $message = $keterangan;
+$message .= "Adapun untuk Mitra Owlance yang ingin melakukan trial aplikasi, Mitra Owlance dapat login melalui link berikut : https://demo.Owlance.id/form_login.php dengan menggunakan username dan password seperti diatas.";
+$message .= "<br>";
+$message .= "Jika bapak/ibu Mitra Owlance belum mendaftarkan diri ke Satu Sehat Kemenkes RI, bapak/ibu Mitra Owlance dapat mengakses melalu link berikut : https://satusehat.kemkes.go.id/platform/welcome";
+$message .= "<br>";
+$message .= "Kami berharap bapak/ibu langsung menganti password untuk menjaga kerahasiaan, apabila ada kesulitan dalam menggunakan aplikasi silahkan hubungi kami";
 
-    $mail->isHTML(true);
-    $subject = 'RESET PASSWORD Owlance';
-    $message = "Dear " . $nama;
-    $message .= "<br>";
-    $message .= "<br>";
-    $message .= "Halo " . $nama;
-    $message .= "<br>";
-    $message .= "Berikut kami kirimkan kata sandi yang baru untuk login ke aplikasi Owlance";
-    $message .= "<br>";
-    $message .= "<br>";
-    $message .= "Username      			: " . $email_user;
-    $message .= "<br>";
-    $message .= "Password             	: " . $pw;
-    $message .= "<br>";
-    $message .= "<br>";
-    $message .= "Login Owlance : https://owlance.metir.my.id/#/login";
-    $message .= "<br>";
+$message .= "<br>";
 
-    $message .= "Adapun untuk Mitra Owlance yang ingin melakukan trial aplikasi, Mitra Owlance dapat login melalui link berikut : https://demo.Owlance.id/form_login.php dengan menggunakan username dan password seperti diatas.";
-    $message .= "<br>";
-    $message .= "Jika bapak/ibu Mitra Owlance belum mendaftarkan diri ke Satu Sehat Kemenkes RI, bapak/ibu Mitra Owlance dapat mengakses melalu link berikut : https://satusehat.kemkes.go.id/platform/welcome";
-    $message .= "<br>";
-    $message .= "Kami berharap bapak/ibu langsung menganti password untuk menjaga kerahasiaan, apabila ada kesulitan dalam menggunakan aplikasi silahkan hubungi kami";
-
-    $message .= "<br>";
-
-    $message .= "<br>";
+$message .= "<br>";
 
 
-    $message .= "Terimakasih";
-    $message .= "<br>";
-    $message .= "Salam Owlance";
-    /****************************************************************************************/
-    $mail->Subject = $subject;
-    $mail->Body = nl2br($message); //isi email
-    $mail->AltBody = "PHP mailer"; //body email
-    $result = $mail->send();
+$message .= "Terimakasih";
+$message .= "<br>";
+$message .= "Salam Owlance";
+/****************************************************************************************/
+$mail->Subject = $subject;
+$mail->Body = nl2br($message); //isi email
+$mail->AltBody = "PHP mailer"; //body email
+$result = $mail->send();
 
+if ($result) {
+    $result = update_tabel('user', $data, "where email='$email_user' and password='$password'");
     if ($result) {
-        $result = update_tabel('user', $data, "where email='$email_user' and password='$password'");
-        if ($result) {
-            $datax['code'] = 200;
-            $datax['msg'] = 'Kami akan mengirimkan password baru ke alamat email anda. Silahkan periksa kotak masuk atau di folder spam email';
-        } else {
-            $datax['code'] = 500;
-            $datax['msg'] = 'Maaf, Gagal mengirimkan password baru ke alamat email anda';
-        }
+        $datax['code'] = 200;
+        $datax['msg'] = 'Kami akan mengirimkan password baru ke alamat email anda. Silahkan periksa kotak masuk atau di folder spam email';
     } else {
         $datax['code'] = 500;
-        $datax['msg'] = 'Gagal Reset Password';
+        $datax['msg'] = 'Maaf, Gagal mengirimkan password baru ke alamat email anda';
     }
 } else {
     $datax['code'] = 500;
-    $datax['msg'] = 'Email tidak terdaftar';
+    $datax['msg'] = 'Gagal Reset Password';
 }
-
 echo encryptData($datax);
