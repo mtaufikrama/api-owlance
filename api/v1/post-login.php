@@ -24,7 +24,7 @@ if ($cekemail > 0) {
         $available = baca_tabel('user', "available", "where ($kondisi) and password = '$pass'");
         $json_device = json_encode($device_data);
         $id_user = baca_tabel('user', 'id', "where ($kondisi) and password = '$pass'");
-        if ($available == 0) {
+        if ($available == 1) {
             $id_roles = baca_tabel('user', 'id_roles', "where id='$id_user'");
             $token = baca_tabel('login', 'token', "where id_user = '$id_user' and device_data = '$json_device'");
             if (!$token || $token == '') {
