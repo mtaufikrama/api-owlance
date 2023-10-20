@@ -4,7 +4,15 @@ include "cek-no-token.php";
 
 // username, nama, email, password, no_hp, foto
 
-if (!$username || !$password || !$email || !$no_hp) {
+$characters = '0123456789';
+$otp = '';
+$charLength = strlen($characters);
+
+for ($i = 0; $i < 4; $i++) {
+    $otp .= $characters[rand(0, $charLength - 1)];
+}
+
+if (!$username || !$password || !$email || !$no_hp || $username == '' || $password == '' || $email == '' || $no_hp == '') {
     $datarest['code'] = 500;
     $datarest['msg'] = "Username / Email / Password / No HP Harus Diisi";
     echo encryptData($datarest);
@@ -14,7 +22,6 @@ if (!$username || !$password || !$email || !$no_hp) {
 $cekSebelummasukusername = baca_tabel("user", "count(username)", "  where username='$username'");
 
 if ($cekSebelummasukusername > 0) {
-
     $datarest['code'] = 500;
     $datarest['msg'] = "Username Sudah Terdaftar";
     echo encryptData($datarest);
@@ -24,7 +31,6 @@ if ($cekSebelummasukusername > 0) {
 $cekSebelummasukemail = baca_tabel("user", "count(email)", "  where email='$email'");
 
 if ($cekSebelummasukemail > 0) {
-
     $datarest['code'] = 500;
     $datarest['msg'] = "Email Sudah Terdaftar";
     echo encryptData($datarest);
@@ -34,7 +40,6 @@ if ($cekSebelummasukemail > 0) {
 $cekSebelummasukhp = baca_tabel("user", "count(no_hp)", "  where no_hp='$no_hp'");
 
 if ($cekSebelummasukhp > 0) {
-
     $datarest['code'] = 500;
     $datarest['msg'] = "No Hp Sudah Terdaftar";
     echo encryptData($datarest);
@@ -42,14 +47,26 @@ if ($cekSebelummasukhp > 0) {
 }
 /****************************************************************************************/
 
-// $path = $foto['tmp_name'];
-// $type = $foto['type'];
-// $file = file_get_contents($path);
-
-// unset($dataSend['foto']);
 $dataSend['id'] = generateID(50, 'user', 'id');
 $dataSend['password'] = base64_encode(enkrip($password));
-// $dataSend['foto'] = "data:" . $type . ";base64," . base64_encode($file);
+$dataSend['available'] = 0;
+
+$dataOtp['id_user'] = $dataSend['id'];
+$dataOtp['otp'] = $otp;
+
+$result = insert_tabel("user", $dataSend);
+if ($result) $result = insert_tabel('otp', $dataOtp);
+if ($result) {
+    $datarest['code'] = 200;
+    $datarest['msg'] = "Berhasil Daftar";
+} else {
+    $datarest['code'] = 200;
+    $datarest['msg'] = "Maaf, Pendaftaran Gagal diproses";
+}
+
+echo encryptData($datarest);
+
+// =================================================================== //
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -126,20 +143,5 @@ $message .= "Salam a-Dokter";
 $mail->Subject = $subject;
 $mail->Body = nl2br($message); //isi email
 $mail->AltBody = "PHP mailer"; //body email
-$result = $mail->send();
-if ($result) {
-    $result = insert_tabel("user", $dataSend);
-    if ($result) {
-        $datarest['code'] = 200;
-        $datarest['msg'] = "Berhasil Daftar";
-    } else {
-        $datarest['code'] = 200;
-        $datarest['msg'] = "Maaf, Pendaftaran Gagal diproses";
-    }
-} else {
-    $datarest['code'] = 500;
-    $datarest['msg'] = "Email Tidak Terkirim";
-}
-
-echo encryptData($datarest);
+$mail->send();
 /****************************************************************************************/
