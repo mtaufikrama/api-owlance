@@ -6,6 +6,13 @@ include 'cek-no-token.php';
 
 // username, password, device_data
 
+if (!$username || $username == "" || !$password || $password == "") {
+    $datax['code'] = 500;
+    $datax['msg'] = 'Email tidak terdaftar';
+    echo encryptData($datax);
+    die();
+}
+
 unset($data);
 
 $pass = base64_encode(enkrip($password));

@@ -1,5 +1,5 @@
 <?php
-ini_set('max_execution_time', '0');
+ini_set('max_execution_time', '300');
 include "../../_lib/function/db_login.php";
 // include "jwt.php";
 include "../encrypt.php";
