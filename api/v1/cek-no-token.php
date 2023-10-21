@@ -11,13 +11,13 @@ include "../src/export.php";
 
 $authorized = $_GET['api_key'];
 
-if ($authorized) {
+if ($authorized || $authorized != '') {
 	$id_user = baca_tabel('login', 'id_user', "where token='$authorized'");
 }
 
-if ($id_user) {
+if ($id_user || $id_user != '') {
 	$id_user = baca_tabel('user', 'id', "where id='$id_user'");
-	if ($id_user) {
+	if ($id_user || $id_user != '') {
 		$update['waktu'] = date("Y-m-d H:i:s");
 		$result = update_tabel('login', $update, "where token='$authorized'");
 		$oneMonthAgo = date('Y-m-d H:i:s', strtotime('-1 month'));
