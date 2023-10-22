@@ -24,7 +24,7 @@ WHERE a.id='$id'";
 $run = $db->Execute($sql);
 
 while ($get = $run->fetchRow()) {
-	$waktu_pertama = date("Y-m-d H:i:s", strtotime($get['waktu']));
+	$waktu_pertama = $get['waktu'];
 	$waktu_terakhir = date('Y-m-d H:i:s');
 	$selisih_detik = $waktu_terakhir - $waktu_pertama;
 
