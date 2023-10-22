@@ -14,16 +14,12 @@ if (!$id_tabs || $id_tabs == '') {
 	die();
 }
 
-$sql = "SELECT a.kode, e.nama as tabs, a.judul, 
-	a.caption, a.waktu, b.nama, b.foto, 
-	COUNT(c.*) as jml_like, 
-	COUNT(d.*) as jml_comment
-	FROM feed a 
-	JOIN user b ON a.id_user=b.id 
-	JOIN like c ON a.id=c.id_feed 
-	JOIN comment d ON a.id=d.id_feed
-	JOIN tabs e ON a.id_tabs=e.id
-	WHERE a.id='$id'";
+$sql = "SELECT a.kode, b.nama as tabs, 
+a.caption, a.waktu, c.nama, c.foto 
+FROM feed a 
+JOIN tabs b ON a.id_tabs=b.id 
+JOIN user c ON a.id_user=c.id 
+WHERE a.id='$id'";
 
 $run = $db->Execute($sql);
 
@@ -61,6 +57,9 @@ while ($get = $run->fetchRow()) {
 
 	$tabs = $get['tabs'];
 	$kode = $get['kode'];
+
+	$get['jml_like'] = baca_tabel('like', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
+	$get['jml_comment'] = baca_tabel('comment', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
 
 	$imageTabs = baca_tabel($tabs . "_img", 'image', "where id_" . $tabs . "='$kode' desc");
 
