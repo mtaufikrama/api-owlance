@@ -45,7 +45,7 @@ while ($get = $run->fetchRow()) {
 
 	$get['waktu'] = $pesan;
 
-	$sqlImg = "SELECT foto FROM feed_img WHERE id_feed='$id'";
+	$sqlImg = "SELECT image FROM feed_img WHERE id_feed='$id'";
 
 	$runImg = $db->Execute($sqlImg);
 
