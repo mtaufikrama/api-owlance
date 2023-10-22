@@ -58,7 +58,7 @@ while ($get = $run->fetchRow()) {
 	$tabs = $get['tabs'];
 	$kode = $get['kode'];
 
-	$get['jml_like'] = baca_tabel('like', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
+	$get['jml_like'] = baca_tabel('likes', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
 	$get['jml_comment'] = baca_tabel('comment', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
 
 	$imageTabs = baca_tabel($tabs . "_img", 'image', "where id_" . $tabs . "='$kode' desc");
