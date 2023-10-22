@@ -3,7 +3,7 @@ include "cek-no-token.php";
 
 // id
 
-$db->debug = true;
+// $db->debug = true;
 
 $id_tabs = baca_tabel("feed", "id_tabs", "where id='$id'");
 
