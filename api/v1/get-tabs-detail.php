@@ -1,7 +1,7 @@
 <?php
 include "cek-no-token.php";
 
-// id, nama
+// id, tabs
 
 $id_tabs = baca_tabel("feed", "id_tabs", "where id='$id'");
 
