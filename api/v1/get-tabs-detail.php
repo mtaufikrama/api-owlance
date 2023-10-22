@@ -1,7 +1,7 @@
 <?php
 include "cek-no-token.php";
 
-// id
+// id, nama
 
 $id_tabs = baca_tabel("feed", "id_tabs", "where id='$id'");
 
@@ -60,6 +60,7 @@ switch ($id_tabs) {
 			$data = $get;
 		}
 		break;
+
 	case "gxGAOusmXfQRi51":
 		$sql = "SELECT a.id, a.judul, a.caption, a.waktu, 
 		b.nama, b.username, b.foto, 
@@ -113,7 +114,7 @@ switch ($id_tabs) {
 
 	default:
 		$datax['code'] = 404;
-		$datax['msg'] = "Nama dan ID kosong";
+		$datax['msg'] = "Terjadi Kesalahan, Silahkan Coba Kembali";
 		echo encryptData($datax);
 		die;
 }
