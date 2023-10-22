@@ -67,10 +67,10 @@ while ($get = $run->fetchRow()) {
 	$detail['tabs'] = $tabs;
 	$detail['image'] = $imageTabs;
 
-	unset($data['kode']);
-	unset($data['tabs']);
+	unset($get['kode']);
+	unset($get['tabs']);
 
-	$data['detail'] = $detail;
+	$get['detail'] = $detail;
 
 	$data = $get;
 }
