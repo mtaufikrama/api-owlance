@@ -2,7 +2,7 @@
 include "cek-no-token.php";
 
 // tabs, id
-$db->debug = true;
+// $db->debug = true;
 $cek = baca_tabel('tabs', 'count(*)', "where nama='$tabs'");
 
 if ($cek <= 0) {
