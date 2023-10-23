@@ -1,33 +1,32 @@
 <?php
 include "cek-token.php";
 
-// nama, id, comment
+// tabs, id, comment
 
-if (!$comment) {
+if (!$comment || $comment == '') {
 	$datax['code'] = 500;
 	$datax['msg'] = "comment tidak ada";
 	echo encryptData($datax);
 	die();
 }
 
-switch ($nama) {
-	case 'feed':
-		$dataComment['id_feed'] = $id;
-		break;
-	case 'gigs':
-		$dataComment['id_gigs'] = $id;
-		break;
-	case 'project':
-		$dataComment['id_project'] = $id;
-		break;
+$cek = baca_tabel('tabs', 'count(*)', "where nama='$tabs'");
+
+if ($cek <= 0) {
+	$datax['code'] = 404;
+	$datax['msg'] = "Data Tidak Ditemukan";
+	echo encryptData($datax);
+	die();
 }
 
-$dataComment['id'] = generateID(100, 'comment', 'id');
+$id_tabs = baca_tabel('tabs', 'id', "where nama='$tabs'");
+
+$dataComment['id'] = generateID(50, 'comment', 'id');
 $dataComment['id_user'] = $id_user;
-$dataComment['title'] = $title;
-$dataComment['caption'] = $caption;
-$dataComment['tgl_awal'] = $tgl_awal;
-$dataComment['tgl_akhir'] = $tgl_akhir;
+$dataComment['id_tabs'] = $id_tabs;
+$dataComment['kode'] = $id;
+$dataComment['comment'] = $comment;
+$dataComment['waktu'] = date('Y-m-d H:i:s');
 
 $result = insert_tabel('comment', $dataComment);
 

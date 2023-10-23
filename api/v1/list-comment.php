@@ -14,10 +14,10 @@ if ($cek <= 0) {
 
 $id_tabs = baca_tabel('tabs', 'id', "where nama='$tabs'");
 
-$sql = "SELECT a.comment, a.rate, b.username, b.foto 
+$sql = "SELECT a.id, a.comment, a.rate, b.username, b.foto 
 	from comment a 
 	join user b on a.id_user=b.id 
-	where id_tabs='$id_tabs' and kode='$id' order by a.waktu desc";
+	where a.id_tabs='$id_tabs' and a.kode='$id' order by a.waktu desc";
 
 $run = $db->Execute($sql);
 
