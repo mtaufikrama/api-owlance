@@ -56,8 +56,9 @@ while ($get = $run->fetchRow()) {
 
 	while ($getImg = $runImg->fetchRow()) {
 		$images[] = $getImg;
-		$get['images'] = $images;
 	}
+
+	$get['images'] = $images;
 	unset($images);
 
 	$get['jml_like'] = baca_tabel('likes', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
