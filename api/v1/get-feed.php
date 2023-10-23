@@ -29,7 +29,7 @@ include "cek-no-token.php";
 // 		order by a.waktu desc limit 7";
 // 	}
 // } else {
-	$sql = "SELECT a.id, e.nama
+$sql = "SELECT a.id, e.nama as tabs
 	from feed a 
 	join tabs e on a.id_tabs=e.id
 	order by a.waktu desc limit 7";
