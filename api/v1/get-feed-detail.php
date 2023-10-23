@@ -79,7 +79,7 @@ while ($get = $run->fetchRow()) {
 
 if (is_array($data)) {
 	$datax['code'] = 200;
-	$datax['data'] = $data;
+	$datax['feed'] = $data;
 } else {
 	$datax['code'] = 500;
 	$datax['msg'] = "Data Tidak Ditemukan";
