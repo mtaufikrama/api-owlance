@@ -1,5 +1,5 @@
 <?php
-include "cek-token.php";
+include "cek-no-token.php";
 
 // tabs, id
 
