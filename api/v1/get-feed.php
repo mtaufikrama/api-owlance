@@ -1,6 +1,8 @@
 <?php
 include "cek-no-token.php";
 
+// username
+
 // if ($id_user) {
 // 	$cek = baca_tabel(
 // 		'feed a 
@@ -29,10 +31,19 @@ include "cek-no-token.php";
 // 		order by a.waktu desc limit 7";
 // 	}
 // } else {
-$sql = "SELECT a.id, e.nama as tabs
-	from feed a 
-	join tabs e on a.id_tabs=e.id
-	order by a.waktu desc limit 7";
+if ($username || $username != '') {
+	$id_users = baca_tabel('user', 'id', "where username='$username'");
+	$sql = "SELECT a.id, e.nama as tabs, a.id_user
+		from feed a 
+		join tabs e on a.id_tabs=e.id
+		where a.id_user=$id_users
+		order by a.waktu desc";
+} else {
+	$sql = "SELECT a.id, e.nama as tabs, a.id_user
+		from feed a 
+		join tabs e on a.id_tabs=e.id
+		order by a.waktu desc limit 7";
+}
 // }
 
 $run = $db->Execute($sql);
@@ -44,6 +55,11 @@ while ($get = $run->fetchRow()) {
 	// 	$update = insert_tabel('recent', $data);
 	// 	unset($data);
 	// }
+	$id_users = $get['id_user'];
+	unset($get['id_user']);
+	$isEdit = false;
+	if ($id_users == $id_user) $isEdit = true;
+	$get['is_edit'] = $isEdit;
 	$feed[] = $get;
 }
 
