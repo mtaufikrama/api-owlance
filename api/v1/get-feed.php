@@ -36,7 +36,7 @@ if ($username || $username != '') {
 	$sql = "SELECT a.id, e.nama as tabs, a.id_user
 		from feed a 
 		join tabs e on a.id_tabs=e.id
-		where a.id_user=$id_users
+		where a.id_user='$id_users'
 		order by a.waktu desc";
 } else {
 	$sql = "SELECT a.id, e.nama as tabs, a.id_user
