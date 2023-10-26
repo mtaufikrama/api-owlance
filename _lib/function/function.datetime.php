@@ -1,4 +1,18 @@
 <?php
+if (!function_exists("date_time")) {
+	function date_time()
+	{
+		include WWWROOT . 'db_login.php';
+		$tgl = "select current_timestamp as nilai";
+		$run = $db->Execute($tgl);
+		$data = '';
+
+		while ($get = $run->fetchRow()) {
+			$data = $get['nilai'];
+		}
+		return $data;
+	}
+}
 
 if (!function_exists("umur")) {
 	function umur($a = "")
