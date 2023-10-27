@@ -1,6 +1,6 @@
 <?php
 
-include "cek-no-token.php";
+include "cek-token.php";
 
 $size = 0;
 
@@ -12,10 +12,17 @@ foreach ($_FILES as $key => $element) {
         echo json_encode($datax);
         die();
     }
-    $element['image'] = ("data:" . $element['type'] . ";base64," . base64_encode(file_get_contents($element['tmp_name'])));
-    $get[] = $element;
+    $images[] = ("data:" . $element['type'] . ";base64," . base64_encode(file_get_contents($element['tmp_name'])));
 }
-$post['size'] = $size;
-$post['data'] = $get;
+
+unset($element);
+
+foreach ($images as $image) {
+    $feedImg['id'] = generateID(15, 'feed_img', 'id');
+    $feedImg['id_feed'] = $id;
+    $feedImg['image'] = $image;
+    // $result = insert_tabel('feed_img', $feedImg);
+    unset($feedImg);
+}
 
 echo json_encode($post);
