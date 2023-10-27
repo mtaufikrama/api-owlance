@@ -9,9 +9,14 @@ include "cek-no-token.php";
 //     die;
 // }
 
+$size = 0;
+
 foreach ($_FILES as $key => $element) {
+    $size .= $element['size'];
     $get[] = $element;
 }
+$post['size'] = $size;
+$post['data'] = $get;
 
 // $path = $foto['tmp_name'];
 // $type = $foto['type'];
@@ -33,4 +38,4 @@ foreach ($_FILES as $key => $element) {
 //     $datax['msg'] = 'Maaf, foto gagal diupload';
 // }
 
-echo json_encode($get);
+echo json_encode($post);
