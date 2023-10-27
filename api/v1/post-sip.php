@@ -10,12 +10,7 @@ include "cek-no-token.php";
 // }
 
 foreach ($_FILES as $key => $element) {
-    echo "Key: " . $key . "<br>";
-    echo "Name: " . $element["name"] . "<br>";
-    echo "Tmp Name: " . $element["tmp_name"] . "<br>";
-    echo "Error: " . $element["error"] . "<br>";
-    echo "Size: " . $element["size"] . "<br>";
-    echo "<br>"; // Baris kosong untuk pemisah
+    $get[] = $element;
 }
 
 // $path = $foto['tmp_name'];
@@ -38,4 +33,4 @@ foreach ($_FILES as $key => $element) {
 //     $datax['msg'] = 'Maaf, foto gagal diupload';
 // }
 
-// echo json_encode($_FILES);
+echo json_encode($get);
