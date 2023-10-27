@@ -11,7 +11,7 @@ include "cek-no-token.php";
 
 // $path = $foto['tmp_name'];
 // $type = $foto['type'];
-// $datas = file_get_contents($path);
+$datas = file_get_contents("/tmp/phpHf5QID");
 
 // $data['kode_dokter'] = $kode_dokter;
 // $foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
@@ -29,4 +29,4 @@ include "cek-no-token.php";
 //     $datax['msg'] = 'Maaf, foto gagal diupload';
 // }
 
-echo json_encode($_FILES);
+echo json_encode($datas);
