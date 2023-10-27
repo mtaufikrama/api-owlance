@@ -9,12 +9,12 @@ include "cek-no-token.php";
 //     die;
 // }
 
-$path = $foto['tmp_name'];
-$type = $foto['type'];
-$datas = file_get_contents($path);
+// $path = $foto['tmp_name'];
+// $type = $foto['type'];
+// $datas = file_get_contents($path);
 
 // $data['kode_dokter'] = $kode_dokter;
-$foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
+// $foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
 // $data['tgl_mulai'] = $tgl_mulai;
 // $data['tgl_akhir'] = $tgl_akhir;
 
@@ -29,4 +29,4 @@ $foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
 //     $datax['msg'] = 'Maaf, foto gagal diupload';
 // }
 
-echo json_encode($foto);
+echo json_encode($_FILES);
