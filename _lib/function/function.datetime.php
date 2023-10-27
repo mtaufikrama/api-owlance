@@ -2,10 +2,12 @@
 if (!function_exists("date_time")) {
 	function date_time()
 	{
+		global $db;
+
 		$data = '';
 
 		$tgl = "select current_timestamp";
-		$run = $db->Execute($tgl);
+		$run = &$db->Execute($tgl);
 		while ($get = $run->fetchRow()) {
 			$data = $get['current_timestamp'];
 		}
