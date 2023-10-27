@@ -1,7 +1,7 @@
 <?php
 
 include "cek-no-token.php";
-// header('Content-Type: application/form-data');
+
 // if ($kode_dokter == '' || $foto == '' || $tgl_akhir == '' || $tgl_mulai == '') {
 //     $data['code'] = 500;
 //     $data['msg'] = 'Goblok';
@@ -9,12 +9,12 @@ include "cek-no-token.php";
 //     die;
 // }
 
-// $path = $foto['tmp_name'];
-// $type = $foto['type'];
-$datas = file_get_contents("/tmp/phpHf5QID");
+$path = $foto['tmp_name'];
+$type = $foto['type'];
+$datas = file_get_contents($path);
 
 // $data['kode_dokter'] = $kode_dokter;
-// $foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
+$foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
 // $data['tgl_mulai'] = $tgl_mulai;
 // $data['tgl_akhir'] = $tgl_akhir;
 
@@ -29,4 +29,4 @@ $datas = file_get_contents("/tmp/phpHf5QID");
 //     $datax['msg'] = 'Maaf, foto gagal diupload';
 // }
 
-echo json_encode($datas);
+echo json_encode($_FILES);
