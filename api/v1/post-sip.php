@@ -10,7 +10,7 @@ header('Content-Type: application/form-data');
 // }
 
 echo json_encode($_FILES);
-echo json_encode($dataSend);
+echo $dataSend;
 echo json_encode($_POST);
 
 $path = $foto['tmp_name'];
