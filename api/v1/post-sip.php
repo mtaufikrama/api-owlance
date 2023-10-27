@@ -1,6 +1,6 @@
 <?php
 
-include "cek-token.php";
+include "cek-no-token.php";
 
 if ($_FILES == []) {
     $datax['code'] = 500;
@@ -28,8 +28,8 @@ foreach ($images as $image) {
     $feedImg['id'] = generateID(15, 'feed_img', 'id');
     $feedImg['id_feed'] = $id;
     $feedImg['image'] = $image;
-    $result = insert_tabel('feed_img', $feedImg);
-    unset($feedImg);
+    // $result = insert_tabel('feed_img', $feedImg);
+    $feed[] = $feedImg;
 }
 
-echo json_encode($post);
+echo json_encode($feed);
