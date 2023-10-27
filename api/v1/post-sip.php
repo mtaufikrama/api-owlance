@@ -9,8 +9,6 @@ header('Content-Type: application/form-data');
 //     die;
 // }
 
-echo json_encode($_FILES);
-
 $path = $foto['tmp_name'];
 $type = $foto['type'];
 $datas = file_get_contents($path);
@@ -31,4 +29,4 @@ $foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
 //     $datax['msg'] = 'Maaf, foto gagal diupload';
 // }
 
-// echo json_encode($foto);
+echo json_encode($foto);
