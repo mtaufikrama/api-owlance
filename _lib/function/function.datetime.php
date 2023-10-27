@@ -2,13 +2,13 @@
 if (!function_exists("date_time")) {
 	function date_time()
 	{
-		include WWWROOT . 'db_login.php';
-		$tgl = "select current_timestamp as nilai";
-		$run = $db->Execute($tgl);
+		include_once WWWROOT . 'db_login.php';
 		$data = '';
 
+		$tgl = "select current_timestamp";
+		$run = $db->Execute($tgl);
 		while ($get = $run->fetchRow()) {
-			$data = $get['nilai'];
+			$data = $get['current_timestamp'];
 		}
 		return $data;
 	}

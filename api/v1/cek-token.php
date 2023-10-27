@@ -1,6 +1,6 @@
 <?php
 include "../src/export.php";
-// $db->debug=true;
+$db->debug = true;
 
 // $headers = apache_request_headers();
 // if ($headers['Authorization']) {
