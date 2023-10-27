@@ -12,7 +12,7 @@ include "cek-no-token.php";
 $size = 0;
 
 foreach ($_FILES as $key => $element) {
-    $size .= $element['size'];
+    $size = $size + $element['size'];
     $get[] = $element;
 }
 $post['size'] = $size;
