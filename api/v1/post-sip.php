@@ -19,7 +19,7 @@ foreach ($_FILES as $key => $element) {
         echo json_encode($datax);
         die();
     }
-    $element['image'] = ("data:" . $get['type'] . ";base64," . base64_encode(file_get_contents($element['tmp_name'])));
+    $element['image'] = ("data:" . $element['type'] . ";base64," . base64_encode(file_get_contents($element['tmp_name'])));
     $get[] = $element;
 }
 $post['size'] = $size;
