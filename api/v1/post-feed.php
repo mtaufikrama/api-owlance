@@ -25,7 +25,7 @@ $dataFeed['id'] = $id_feed;
 $dataFeed['id_tabs'] = $id_tabs;
 $dataFeed['caption'] = $caption;
 $dataFeed['id_user'] = $id_user;
-$dataFeed['waktu'] = date("Y-m-d H:i:s");
+$dataFeed['waktu'] = date_time();
 
 $result = insert_tabel('feed', $dataFeed);
 

@@ -54,7 +54,7 @@ $dataSend['available'] = 0;
 
 $dataOtp['email'] = $email;
 $dataOtp['otp'] = $otp;
-$dataOtp['waktu'] = date("Y-m-d H:i:s");
+$dataOtp['waktu'] = date_time();
 
 $result = insert_tabel("user", $dataSend);
 if ($result) $result = insert_tabel('otp', $dataOtp);

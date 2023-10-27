@@ -25,7 +25,7 @@ $run = $db->Execute($sql);
 
 while ($get = $run->fetchRow()) {
 	$waktu_pertama = strtotime($get['waktu']);
-	$waktu_terakhir = strtotime(date('Y-m-d H:i:s'));
+	$waktu_terakhir = strtotime(date_time());
 	$selisih_detik = $waktu_terakhir - $waktu_pertama;
 
 	$jam = floor($selisih_detik / 3600);

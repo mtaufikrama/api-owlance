@@ -18,7 +18,7 @@ if ($authorized || $authorized != '') {
 if ($id_user || $id_user != '') {
 	$id_user = baca_tabel('user', 'id', "where id='$id_user'");
 	if ($id_user || $id_user != '') {
-		$update['waktu'] = date("Y-m-d H:i:s");
+		$update['waktu'] = date_time();
 		$result = update_tabel('login', $update, "where token='$authorized'");
 		$oneMonthAgo = date('Y-m-d H:i:s', strtotime('-1 month'));
 		delete_tabel("login", "where waktu < '$oneMonthAgo'");

@@ -26,7 +26,7 @@ $dataComment['id_user'] = $id_user;
 $dataComment['id_tabs'] = $id_tabs;
 $dataComment['kode'] = $id;
 $dataComment['comment'] = $comment;
-$dataComment['waktu'] = date('Y-m-d H:i:s');
+$dataComment['waktu'] = date_time();
 
 $result = insert_tabel('comment', $dataComment);
 

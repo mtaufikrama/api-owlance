@@ -14,7 +14,7 @@ $otp = randomOtp();
 
 $dataOtp['email'] = $email;
 $dataOtp['otp'] = $otp;
-$dataOtp['waktu'] = date('Y-m-d H:i:s');
+$dataOtp['waktu'] = date_time();
 if ($result) $result = insert_tabel('otp', $dataOtp);
 if (!$result) {
     $datax['code'] = 500;

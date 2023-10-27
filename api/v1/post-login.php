@@ -38,7 +38,7 @@ if ($cekemail > 0) {
                 $data['id_user'] = $id_user;
                 $data['token'] = generateID(50, 'login', 'token');
                 $data['device_data'] = $json_device;
-                $data['waktu'] = date("Y-m-d H:i:s");
+                $data['waktu'] = date_time();
                 $insert = insert_tabel('login', $data);
                 if ($insert) {
                     $dataRes['code'] = 200;
@@ -51,7 +51,7 @@ if ($cekemail > 0) {
                     $dataRes['msg'] = 'Login Gagal';
                 }
             } else {
-                $data['waktu'] = date("Y-m-d H:i:s");
+                $data['waktu'] = date_time();
                 $update = update_tabel('login', $data, "where id_user = '$id_user' and device_data = '$json_device'");
                 if ($update) {
                     $dataRes['code'] = 200;

@@ -29,7 +29,7 @@ switch ($id_tabs) {
 
 		while ($get = $run->fetchRow()) {
 			$waktu_pertama = $get['waktu'];
-			$waktu_terakhir = date('Y-m-d H:i:s');
+			$waktu_terakhir = date_time();
 			$selisih_detik = $waktu_terakhir - $waktu_pertama;
 
 			$jam = floor($selisih_detik / 3600);

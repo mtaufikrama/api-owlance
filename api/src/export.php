@@ -11,7 +11,7 @@ include "../../_lib/function/function.like_text.php";
 // include "../../_lib/function/function.angka.php";
 // include "../../_lib/function/function.form.php";
 // include "../../_lib/function/function.angka_romawi.php";
-// include "../../_lib/function/function.datetime.php";
+include "../../_lib/function/function.datetime.php";
 // include "../../_lib/function/function.max_kode_text.php";
 // include "../../_lib/function/function.uang.php";
 // include "../../_lib/function/function.variabel.php";

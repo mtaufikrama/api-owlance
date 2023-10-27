@@ -3,7 +3,7 @@ include "cek-no-token.php";
 
 // email, otp
 
-$waktu_sekarang = date("Y-m-d H:i:s");
+$waktu_sekarang = date_time();
 
 $waktu_lalu = date("Y-m-d H:i:s", strtotime($waktu_sekarang . " - 5 minutes"));
 

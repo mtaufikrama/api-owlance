@@ -7,7 +7,7 @@ $dataGigs['id'] = generateID(50, 'gigs', 'id');
 $dataGigs['id_user'] = $id_user;
 $dataGigs['title'] = $title;
 $dataGigs['caption'] = $caption;
-$dataGigs['waktu'] = date("Y-m-d H:i:s");
+$dataGigs['waktu'] = date_time();
 
 $result = insert_tabel('gigs', $dataGigs);
 
