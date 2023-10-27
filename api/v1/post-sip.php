@@ -1,7 +1,7 @@
 <?php
 
 include "cek-no-token.php";
-
+header('Content-Type: application/form-data');
 // if ($kode_dokter == '' || $foto == '' || $tgl_akhir == '' || $tgl_mulai == '') {
 //     $data['code'] = 500;
 //     $data['msg'] = 'Goblok';
@@ -30,4 +30,3 @@ $foto['image'] = ("data:" . $type . ";base64," . base64_encode($datas));
 // }
 
 echo json_encode($foto);
-?>
