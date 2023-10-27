@@ -2,7 +2,6 @@
 if (!function_exists("date_time")) {
 	function date_time()
 	{
-		include_once WWWROOT . 'db_login.php';
 		$data = '';
 
 		$tgl = "select current_timestamp";
