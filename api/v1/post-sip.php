@@ -9,7 +9,7 @@ header('Content-Type: application/form-data');
 //     die;
 // }
 
-echo $_FILES;
+echo json_encode($_FILES);
 
 $path = $foto['tmp_name'];
 $type = $foto['type'];
