@@ -2,6 +2,13 @@
 
 include "cek-token.php";
 
+if ($_FILES == []) {
+    $datax['code'] = 500;
+    $datax['msg'] = 'Tidak ada foto yang diinput';
+    echo encryptData($datax);
+    die();
+}
+
 $size = 0;
 
 foreach ($_FILES as $key => $element) {
@@ -21,7 +28,7 @@ foreach ($images as $image) {
     $feedImg['id'] = generateID(15, 'feed_img', 'id');
     $feedImg['id_feed'] = $id;
     $feedImg['image'] = $image;
-    // $result = insert_tabel('feed_img', $feedImg);
+    $result = insert_tabel('feed_img', $feedImg);
     unset($feedImg);
 }
 

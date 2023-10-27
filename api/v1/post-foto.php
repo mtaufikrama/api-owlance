@@ -33,4 +33,4 @@ if ($result) {
     $datax['msg'] = 'Foto Gagal diupload';
 }
 
-echo json_encode($datax);
+echo encryptData($datax);
