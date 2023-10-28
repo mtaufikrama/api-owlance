@@ -2,7 +2,7 @@
 
 include "cek-no-token.php";
 
-if ($_FILES == []) {
+if (!is_array($_FILES)) {
     $datax['code'] = 500;
     $datax['msg'] = 'Tidak ada foto yang diinput';
     echo encryptData($datax);

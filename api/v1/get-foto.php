@@ -16,24 +16,21 @@ if ($tabs == 'user') {
 			$foto = $get['image'];
 		}
 	} else {
-		$datax['code'] = 404;
-		$datax['msg'] = 'Foto Tidak Ditemukan';
-		echo encryptData($datax);
-		die();
+		$type = 'image/jpeg';
+		$foto = null;
 	}
 } else {
 	$cektabs = baca_tabel('tabs', 'count(nama)', "where nama='$tabs'");
 	if ($cektabs > 0) {
-		$sql = "SELECT mime_type, image from " . $tabs . "_img where id='$id' order by waktu desc limit 1";
+		$sql = "SELECT mime_type, image from tabs_img where id='$id' order by waktu desc limit 1";
 		$run = $db->Execute($sql);
 		while ($get = $run->fetchRow()) {
 			$type = $get['mime_type'];
 			$foto = $get['image'];
 		}
 	} else {
-		$datax['code'] = 404;
-		$datax['msg'] = 'Foto Tidak Ditemukan';
-		echo encryptData($datax);
+		$type = 'image/jpeg';
+		$foto = null;
 		die();
 	}
 }

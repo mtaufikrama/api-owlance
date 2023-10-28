@@ -2,13 +2,13 @@
 
 include "cek-token.php";
 
-// id, foto
+// foto
 
 foreach ($_FILES as $key => $val) {
     $$key = $val;
 }
 
-if (!$foto || $foto == '') {
+if (!is_array($foto)) {
     $datax['code'] = 500;
     $datax['msg'] = 'Tidak ada foto yang diinput';
     echo encryptData($datax);
@@ -22,8 +22,12 @@ if ($foto['size'] >= 2000000) {
     die();
 }
 
-$feedImg['image'] = ("data:" . $foto['type'] . ";base64," . base64_encode(file_get_contents($foto['tmp_name'])));
-$result = update_tabel('user', $feedImg, "where id_user='$id_user'");
+$userImg['id'] = generateID(50, 'user_img', 'id');
+$userImg['id_user'] = $id_user;
+$userImg['mime_type'] = $foto['type'];
+$userImg['image'] = base64_encode(file_get_contents($foto['tmp_name']));
+$userImg['waktu'] = date_time();
+$result = insert_tabel('user_img', $userImg);
 
 if ($result) {
     $datax['code'] = 200;

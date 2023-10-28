@@ -1,32 +1,20 @@
 <?php
 include "cek-token.php";
 
-// caption, array(images)
+// title, caption
 
-$dataGigs['id'] = generateID(50, 'gigs', 'id');
+$dataGigs['id'] = generateID(50, 'gig', 'id');
 $dataGigs['id_user'] = $id_user;
 $dataGigs['title'] = $title;
 $dataGigs['caption'] = $caption;
 $dataGigs['waktu'] = date_time();
 
-$result = insert_tabel('gigs', $dataGigs);
+$result = insert_tabel('gig', $dataGigs);
 
 if ($result) {
-	foreach ($images as $image) {
-		$gigsImg['id'] = generateID(50, 'gigs_img', 'id');
-		$gigsImg['id_gigs'] = $dataGigs['id'];
-		$gigsImg['image'] = $image;
-		$result = insert_tabel('gigs_img', $gigsImg);
-		unset($gigsImg);
-	}
-	if ($result) {
-		$datax['code'] = 200;
-		$datax['msg'] = 'Berhasil Mengupload Gigs';
-		$datax['kode'] = $dataGigs['id'];
-	} else {
-		$datax['code'] = 500;
-		$datax['msg'] = 'Gagal Mengupload Gambar';
-	}
+	$datax['code'] = 200;
+	$datax['msg'] = 'Berhasil Mengupload Gigs';
+	$datax['kode'] = $dataGigs['id'];
 } else {
 	$datax['code'] = 500;
 	$datax['msg'] = "Gagal Mengupload Gigs";

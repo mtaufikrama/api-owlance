@@ -50,25 +50,28 @@ while ($get = $run->fetchRow()) {
 
 	$get['tabs'] = 'feed';
 
-	$sqlImg = "SELECT image FROM feed_img WHERE id_feed='$id'";
+	$idTabsFeed = '1b2IDNZbMY5JJ0e';
+
+	$sqlImg = "SELECT id FROM tabs_img WHERE kode='$id' and id_tabs='$idTabsFeed'";
 
 	$runImg = $db->Execute($sqlImg);
 
 	while ($getImg = $runImg->fetchRow()) {
-		$images[] = $getImg;
+		$idImg = $getImg['id'];
+		$images[] = image_link('feed', $idImg);
 	}
 
 	$get['images'] = $images;
 	unset($images);
 
-	$get['jml_like'] = baca_tabel('likes', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
-	$get['jml_comment'] = baca_tabel('comment', 'count(*)', "where kode='$kode' and id_tabs='$id_tabs'");
+	$get['jml_like'] = baca_tabel('likes', 'count(*)', "where kode='$id' and id_tabs='$idTabsFeed'");
+	$get['jml_comment'] = baca_tabel('comment', 'count(*)', "where kode='$id' and id_tabs='$idTabsFeed'");
 
 	if ($tabs != 'feed') {
-		$imageTabs = baca_tabel($tabs . "_img", 'image', "where id_" . $tabs . "='$kode'");
+		$idImg = baca_tabel("tabs_img", 'id', "where id_tabs='$id_tabs' and kode='$kode'");
 		$detail['id'] = $kode;
 		$detail['tabs'] = $tabs;
-		$detail['image'] = $imageTabs;
+		$detail['image'] = image_link($tabs, $idImg);
 	}
 
 	unset($get['kode']);
