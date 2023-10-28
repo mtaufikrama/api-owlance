@@ -5,11 +5,7 @@ include "../../_lib/function/db_login.php";
 // include "../encrypt.php";
 
 include "../../_lib/function/function.random_string.php";
-$datax['code'] = 404;
-$datax['msg'] = "Data Tidak Ditemukan";
-echo encryptData($datax);
-die();
-// include "../../_lib/function/function.image_link.php";
+include "../../_lib/function/function.image_link.php";
 include "../../_lib/function/function.encrypt_data.php";
 include "../../_lib/function/function.olah_tabel.php";
 include "../../_lib/function/function.like_text.php";
