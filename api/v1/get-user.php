@@ -3,7 +3,9 @@ include "cek-token.php";
 
 // username
 
-if (!$username || $username == '') {
+$cek = baca_tabel('user', 'count(username)', "where username='$username'");
+
+if (!$username || $username == '' || $cek == 0) {
 	$datax['code'] = 404;
 	$datax['msg'] = "Data Tidak Ditemukan";
 	echo encryptData($datax);
