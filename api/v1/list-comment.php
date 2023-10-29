@@ -14,7 +14,7 @@ if ($cek <= 0) {
 
 $id_tabs = baca_tabel('tabs', 'id', "where nama='$tabs'");
 
-$sql = "SELECT a.id, a.comment, a.rate, b.username, b.foto 
+$sql = "SELECT a.id, a.comment, a.rate, b.username, b.id as id_user
 	from comment a 
 	join user b on a.id_user=b.id 
 	where a.id_tabs='$id_tabs' and a.kode='$id' order by a.waktu desc";
@@ -22,6 +22,8 @@ $sql = "SELECT a.id, a.comment, a.rate, b.username, b.foto
 $run = $db->Execute($sql);
 
 while ($get = $run->fetchRow()) {
+	$get['foto'] = image_link('user', $get['id_user']);
+	unset($get['id_user']);
 	$data[] = $get;
 }
 

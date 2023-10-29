@@ -14,8 +14,8 @@ if (!$id_tabs || $id_tabs == '') {
 	die();
 }
 
-$sql = "SELECT a.id, a.kode, b.nama as tabs, 
-a.caption, a.waktu, c.nama, c.foto 
+$sql = "SELECT a.id, c.id as id_user, a.kode, b.nama as tabs, 
+a.caption, a.waktu, c.nama
 FROM feed a 
 JOIN tabs b ON a.id_tabs=b.id 
 JOIN user c ON a.id_user=c.id 
@@ -24,16 +24,20 @@ WHERE a.id='$id'";
 $run = $db->Execute($sql);
 
 while ($get = $run->fetchRow()) {
+	$get['foto'] = image_link('user', $get['id_user']);
+	unset($get['id_user']);
 	$waktu_pertama = strtotime($get['waktu']);
 	$waktu_terakhir = strtotime(date_time());
 	$selisih_detik = $waktu_terakhir - $waktu_pertama;
 
+	$hari = floor($selisih_detik / (3600 * 24));
 	$jam = floor($selisih_detik / 3600);
 	$sisa_detik = $selisih_detik % 3600;
 	$menit = floor($sisa_detik / 60);
 	$detik = $selisih_detik;
-
-	if ($jam > 0 && $menit > 0) {
+	if ($hari > 0) {
+		$pesan = "$hari hari yang lalu";
+	} elseif ($jam > 0 && $menit > 0) {
 		$pesan = "$jam jam $menit menit yang lalu";
 	} elseif ($jam > 0) {
 		$pesan = "$jam jam yang lalu";
